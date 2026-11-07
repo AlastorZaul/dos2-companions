@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talents : DOS2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html">Accueil</a>
+  <a href="debutant.html">Débutant</a>
+  <a href="classes.html">Classes</a>
+  <a href="builds-maison.html">Builds maison</a>
+  <a href="talents.html" aria-current="page">Talents</a>
+  <a href="pyro.html">Pyro</a>
+  <a href="physique.html">Physique</a>
+  <a href="clerc.html">Clerc (Ecclésiastique)</a>
+  <a href="races.html">Races</a>
+  <a href="surfaces.html">Surfaces et états</a>
+  <a href="personnages.html">Personnages</a>
+  <a href="loup-solitaire.html">Loup solitaire</a>
+  <a href="lexique.html">Lexique</a>
+  <a href="calculateur.html">Calculateur</a>
+</nav>
+<main>
+
+  <h1>Talents</h1>
+  <p class="subtitle">Liste selon RPGSoluce (version PS4). Tape un mot pour filtrer.</p>
+
+  <label for="q">Rechercher</label>
+  <input id="q" type="text" placeholder="ex. critique, feu, Nain" style="width:100%;max-width:360px;">
+
+  <table id="talents">
+    <thead>
+      <tr><th>Talent</th><th>Effet</th><th>Prérequis</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Affinité élémentaire</td><td>Réduit de 1 PA le coût d'un sort lancé sur une surface du même élément.</td><td>Aucun</td></tr>
+      <tr><td>Ambidextrie</td><td>Réduit de 1 PA le coût des grenades et parchemins si la main secondaire est libre.</td><td>Aucun</td></tr>
+      <tr><td>Ami des bêtes</td><td>Permet de parler aux animaux.</td><td>Aucun</td></tr>
+      <tr><td>Armure vivante</td><td>Ajoute à l'armure magique 35 % des soins reçus par compétences ou consommables.</td><td>Aucun</td></tr>
+      <tr><td>Baiser de l'araignée</td><td>-2 en Constitution.</td><td>Quête « La toile du désir »</td></tr>
+      <tr><td>Bourreau</td><td>+2 PA après un coup fatal.</td><td>Art de la guerre 1 ; incompatible avec Pion</td></tr>
+      <tr><td>Canon de verre</td><td>PA au maximum à chaque round, mais les armures ne protègent pas des états.</td><td>Incompatible avec Loup solitaire</td></tr>
+      <tr><td>Chantesort</td><td>+1 en Éloquence.</td><td>Race Lézard</td></tr>
+      <tr><td>Complètement givré</td><td>+15 % de résistance à l'eau, -15 % à la résistance au feu.</td><td>Hydrosophiste 1 ; incompatible avec Démon</td></tr>
+      <tr><td>Démon</td><td>+15 % de résistance au feu, -15 % à la résistance à l'eau.</td><td>Pyrokinésie 1 ; incompatible avec Complètement givré</td></tr>
+      <tr><td>Dîner cinq étoiles</td><td>Double les effets de la nourriture et des potions.</td><td>Aucun</td></tr>
+      <tr><td>Économe</td><td>+1 en Troc.</td><td>Race Humain</td></tr>
+      <tr><td>Empressement</td><td>+1 en récupération et en PA max quand la santé est sous 50 %.</td><td>Aucun</td></tr>
+      <tr><td>Enracinement</td><td>+3 en Mémoire.</td><td>Quête « L'Arbre-Mère »</td></tr>
+      <tr><td>En retrait</td><td>+2 m de portée pour sorts et parchemins (sans effet sur le corps à corps).</td><td>Aucun</td></tr>
+      <tr><td>Fortitude</td><td>Réduit de 1 tour la durée de tous les états, positifs compris (sauf ceux d'un tour).</td><td>Aucun</td></tr>
+      <tr><td>Fronde</td><td>+5 m de portée pour les grenades.</td><td>Aucun</td></tr>
+      <tr><td>Guérilla</td><td>+40 % de dégâts en mode furtif ; passer en furtif coûte 1 PA de moins.</td><td>Aucun</td></tr>
+      <tr><td>Ingéniosité</td><td>+5 % de chances de critique et +10 % de multiplicateur critique.</td><td>Race Humain</td></tr>
+      <tr><td>Instable</td><td>À la mort, explose et inflige 50 % de la vitalité en dégâts physiques (rayon de 3 m).</td><td>Aucun</td></tr>
+      <tr><td>Jeu du mouchoir</td><td>Permet d'esquiver les attaques d'opportunité.</td><td>Chasseur 1</td></tr>
+      <tr><td>Lève-tôt</td><td>Récupère toute sa vitalité à la résurrection.</td><td>Aucun</td></tr>
+      <tr><td>Loup solitaire</td><td>Bonus de PA, de récupération, de vitalité et d'armures ; points doublés, seulement en solo ou à deux.</td><td>Incompatible avec Canon de verre</td></tr>
+      <tr><td>Maître de l'évasion</td><td>Permet de fuir un combat même avec des ennemis adjacents.</td><td>Aucun</td></tr>
+      <tr><td>Maître de la parade</td><td>+10 % d'esquive en combat à deux armes.</td><td>Aucun</td></tr>
+      <tr><td>Mangeur de cadavres</td><td>Accès aux souvenirs des défunts en mangeant leur cadavre.</td><td>Race Elfe</td></tr>
+      <tr><td>Mnémonique</td><td>+3 en Mémoire.</td><td>Aucun</td></tr>
+      <tr><td>Mort-vivant</td><td>Le poison soigne, les soins normaux blessent, et l'état Empoisonnement s'applique malgré l'armure magique.</td><td>Race Mort-vivant</td></tr>
+      <tr><td>Opportuniste</td><td>Permet d'effectuer des attaques d'opportunité.</td><td>Aucun</td></tr>
+      <tr><td>Pion</td><td>+1 PA de déplacement gratuit à chaque tour.</td><td>Fripouille 1 ; incompatible avec Bourreau</td></tr>
+      <tr><td>Puanteur</td><td>-25 de bienveillance de tous, mais les ennemis au corps à corps s'intéressent moins à vous.</td><td>Aucun</td></tr>
+      <tr><td>Ranger élémentaire</td><td>Les flèches infligent des dégâts élémentaires selon la surface de la cible.</td><td>Chasseur 1</td></tr>
+      <tr><td>Revenant</td><td>Une fois par combat, survit à un coup fatal avec 20 % de vitalité.</td><td>Aucun</td></tr>
+      <tr><td>Robuste</td><td>+10 % de vitalité maximale et +5 % d'esquive.</td><td>Race Nain</td></tr>
+      <tr><td>Ruse de nain</td><td>+1 en Furtivité.</td><td>Race Nain</td></tr>
+      <tr><td>Sangsue</td><td>Soigne quand on se tient sur du sang.</td><td>Aucun</td></tr>
+      <tr><td>Santé de fer</td><td>+3 % de vitalité par point en Art de la guerre.</td><td>Art de la guerre 1</td></tr>
+      <tr><td>Savoir ancestral</td><td>+1 en Maître du savoir.</td><td>Race Elfe</td></tr>
+      <tr><td>Secrets professionnels</td><td>+1 en Troc.</td><td>Quête « Prise de contrôle agressive »</td></tr>
+      <tr><td>Sophistiqué</td><td>+10 % de résistance au feu et au poison.</td><td>Race Lézard</td></tr>
+      <tr><td>Sortilège sauvage</td><td>Les compétences magiques ont les mêmes chances de critique que les attaques normales.</td><td>Aucun</td></tr>
+      <tr><td>Super compétent</td><td>+1 point de capacités de combat et +1 point de capacités civiles immédiatement.</td><td>Niveau 2</td></tr>
+      <tr><td>Taille XXL</td><td>+2 points d'attributs immédiatement.</td><td>Niveau 2</td></tr>
+      <tr><td>Tête brûlée</td><td>+10 % de critique et +10 % de précision tant que la vitalité est au maximum.</td><td>Aucun</td></tr>
+      <tr><td>Tortionnaire</td><td>Certains états causés ignorent les armures et durent un tour de plus.</td><td>Aucun</td></tr>
+      <tr><td>Trouve-flèches</td><td>33 % de chances de récupérer une flèche spéciale après tir.</td><td>Aucun</td></tr>
+    </tbody>
+  </table>
+
+  <p class="card warning">Talents non trouvés dans RPGSoluce, à vérifier en jeu : Picture of Health, Comeback Kid.</p>
+
+  <h2>Source</h2>
+  <ul>
+    <li><a href="https://www.rpgsoluce.com/soluces/ps4/dos2/guides/talents.htm">RPGSoluce : talents</a></li>
+  </ul>
+
+  <footer>Guide communautaire non officiel. Aucun lien avec Larian Studios. Version PS4 de la source.</footer>
+</main>
+<script>
+  const q = document.getElementById('q');
+  const rows = document.querySelectorAll('#talents tbody tr');
+  q.addEventListener('input', () => {
+    const term = q.value.trim().toLowerCase();
+    rows.forEach(r => { r.hidden = term !== '' && !r.textContent.toLowerCase().includes(term); });
+  });
+</script>
+<script src="theme.js"></script>
+</body>
+</html>

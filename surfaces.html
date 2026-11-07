@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surfaces et états : DOS2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html">Accueil</a>
+  <a href="debutant.html">Débutant</a>
+  <a href="classes.html">Classes</a>
+  <a href="builds-maison.html">Builds maison</a>
+  <a href="talents.html">Talents</a>
+  <a href="pyro.html">Pyro</a>
+  <a href="physique.html">Physique</a>
+  <a href="clerc.html">Clerc (Ecclésiastique)</a>
+  <a href="races.html">Races</a>
+  <a href="surfaces.html" aria-current="page">Surfaces et états</a>
+  <a href="personnages.html">Personnages</a>
+  <a href="loup-solitaire.html">Loup solitaire</a>
+  <a href="lexique.html">Lexique</a>
+  <a href="calculateur.html">Calculateur</a>
+</nav>
+<main>
+
+  <h1>Surfaces et états</h1>
+  <p class="subtitle">Selon RPGSoluce (version PS4)</p>
+
+  <h2>Surfaces : principes</h2>
+  <ul>
+    <li><strong>Feu :</strong> brûlure et dégâts de feu. Retiré par l'eau et la glace. Bloqué par l'armure magique.</li>
+    <li><strong>Eau :</strong> applique l'humidité. Retirée par le feu.</li>
+    <li><strong>Poison :</strong> applique l'empoisonnement et soigne les morts-vivants. Retiré par le feu.</li>
+    <li><strong>Huile :</strong> applique le ralentissement. Retirée par le feu.</li>
+    <li><strong>Sang :</strong> aucun effet direct. Retiré par Vampirisme ou Sangsue.</li>
+    <li><strong>Lave :</strong> mort instantanée et brûlure. Retirée par Tornade.</li>
+    <li><strong>Toile d'araignée :</strong> chance d'appliquer l'état entoilé. Ne se retire pas avec les éléments ci-dessus.</li>
+  </ul>
+
+  <h2>Combinaisons utiles</h2>
+  <ul>
+    <li><strong>Feu + eau :</strong> nuage de vapeur.</li>
+    <li><strong>Feu + poison :</strong> explosion.</li>
+    <li><strong>Eau + glace :</strong> surface gelée.</li>
+    <li><strong>Eau + électricité :</strong> surface électrifiée.</li>
+    <li><strong>Béni / maudit :</strong> chaque surface peut être bénie ou maudite. Le béni annule le maudit et inversement.</li>
+  </ul>
+
+  <h2>Nuages</h2>
+  <ul>
+    <li><strong>Vapeur :</strong> applique l'humidité. La version maudite applique la putréfaction.</li>
+    <li><strong>Brouillard mortel :</strong> mort instantanée, sauf pour les morts-vivants.</li>
+    <li><strong>Écran de fumée :</strong> empêche la visibilité. La version bénie applique l'invisibilité.</li>
+    <li>Tous les nuages peuvent être retirés par Tornade.</li>
+  </ul>
+
+  <h2>Altérations d'état</h2>
+  <p>RPGSoluce ne précise pas les durées. Les moyens de retrait sont indiqués quand la source les donne.</p>
+  <table>
+    <thead>
+      <tr><th>État</th><th>Effet</th><th>Retrait</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Acide</td><td>Détruit l'armure physique à chaque tour.</td><td>Fortification, Nettoyage des blessures de groupe</td></tr>
+      <tr><td>Atrophie</td><td>Empêche d'attaquer ou d'utiliser des compétences d'armes.</td><td>Premiers secours, Chaînes brisées</td></tr>
+      <tr><td>Brûlure</td><td>Dégâts de feu à chaque tour ; feu -10 %, eau +20 %.</td><td>Premiers secours, Armure de givre, Tornade, Fortification, Nettoyage des blessures, Cryothérapie</td></tr>
+      <tr><td>Cécité</td><td>Réduit portée et précision ; pas d'attaques d'opportunité.</td><td>Premiers secours, Tranquillité d'esprit</td></tr>
+      <tr><td>Chaînes de douleur</td><td>La cible subit les dégâts infligés à la personne liée.</td><td>Stase cryogénique, Chaînes brisées</td></tr>
+      <tr><td>Chaleur</td><td>Feu -10 %, eau +15 %.</td><td>Coup de froid, Gel, Brûlure, Nécroflammes, Humidité</td></tr>
+      <tr><td>Charme</td><td>Retourne le personnage contre ses alliés.</td><td>Enragement, Tranquillité d'esprit</td></tr>
+      <tr><td>Coup de froid</td><td>Vitesse -35 %, esquive -30 %, feu +10 %, eau -20 % ; un second coup provoque Gel.</td><td>Chaînes brisées, Brûlure, Chaleur</td></tr>
+      <tr><td>Empoisonnement</td><td>Dégâts de poison à chaque tour ; soigne les morts-vivants.</td><td>Premiers secours, Restauration, Fortification, Nettoyage des blessures</td></tr>
+      <tr><td>Enchevêtrement</td><td>Empêche tout déplacement ; vitesse -100 %, esquive -70 %.</td><td>Non indiqué</td></tr>
+      <tr><td>Encombrement</td><td>Vitesse -50 % au-delà de 100 % du poids max, -100 % au-delà de 120 %.</td><td>Retirer des objets lourds</td></tr>
+      <tr><td>Esquive</td><td>Esquive +90 %, déplacement +1 (bénéfique).</td><td>Non applicable</td></tr>
+      <tr><td>État de choc</td><td>AP de départ -1, regain d'AP -1, esquive -30 % ; un second choc ou humidité provoque Étourdissement.</td><td>Armure de givre, Béni, Couture arcanique</td></tr>
+      <tr><td>Étourdissement</td><td>Paralysé par l'électricité ; esquive -100 %.</td><td>Armure de givre, Béni, Couture arcanique</td></tr>
+      <tr><td>Folie / Démence</td><td>Attaque le plus proche, allié ou ennemi.</td><td>Tranquillité d'esprit, Enragement, Couture arcanique</td></tr>
+      <tr><td>Forme de poulet</td><td>Empêche d'attaquer, de lancer des sorts et d'interagir avec les objets.</td><td>Non indiqué</td></tr>
+      <tr><td>Gel</td><td>Gelé ; esquive -100 %, feu +20 %, eau -20 %, poison +20 %.</td><td>Couture arcanique, Vaporisation, Brûlure, Chaleur</td></tr>
+      <tr><td>Handicap</td><td>Empêche tout déplacement ; vitesse -100 %, esquive -30 %.</td><td>Premiers secours, Hâte, Retraite stratégique, Chaînes brisées</td></tr>
+      <tr><td>Hémorragie</td><td>Dégâts perforants à chaque tour.</td><td>Premiers secours, Restauration, Fortification</td></tr>
+      <tr><td>Humidité</td><td>Électricité provoque Étourdissement, froid provoque Gel ; feu +10 %, eau -10 %, air -20 %.</td><td>Chaleur, Brûlure, Nécroflammes, Coup de froid, Gel</td></tr>
+      <tr><td>Infection</td><td>Contagieux ; Constitution -3, dégâts infligés -35 %.</td><td>Non indiqué</td></tr>
+      <tr><td>Ivresse</td><td>Intelligence -4, Porte-bonheur +2, Initiative -5, précision -5 %, esquive +5 % ; un second effet provoque Sommeil.</td><td>Tranquillité d'esprit</td></tr>
+      <tr><td>Lenteur</td><td>Vitesse -50 %, esquive -30 %, consommation d'AP accrue en mouvement.</td><td>Hâte, Retraite stratégique, Tornade, Chaînes brisées</td></tr>
+      <tr><td>Maladie</td><td>Constitution -3, dégâts infligés -35 %.</td><td>Fortification, Premiers secours, Nettoyage des blessures</td></tr>
+      <tr><td>Maudit</td><td>Précision -10 %, esquive -30 %, résistances -15 %.</td><td>Béni, Élixir de soins, Potion de volonté de fer</td></tr>
+      <tr><td>Mort</td><td>Le personnage doit être ressuscité.</td><td>Parchemin de résurrection, Rites funéraires</td></tr>
+      <tr><td>Nécroflammes</td><td>Dégâts de feu à chaque tour, impossible à éteindre ; feu -15 %, eau +20 %.</td><td>Béni, Couture arcanique, Cryothérapie</td></tr>
+      <tr><td>Pétrification</td><td>Incapable de bouger ou d'agir ; esquive -100 %, feu +30 %, air +30 %.</td><td>Armure de givre, Béni, Vaporisation, Couture arcanique</td></tr>
+      <tr><td>Provocation</td><td>La cible doit attaquer le lanceur.</td><td>Tranquillité d'esprit, Enragement, Couture arcanique</td></tr>
+      <tr><td>Putréfaction</td><td>Le personnage subit des dégâts au lieu de soins.</td><td>Fortification, Nettoyage des blessures, Nettoyage des blessures de groupe</td></tr>
+      <tr><td>Renversement</td><td>À terre et immobile ; se relever prend un tour en combat.</td><td>Premiers secours, Âme sœur</td></tr>
+      <tr><td>Silence</td><td>Empêche de lancer des sorts et d'utiliser des parchemins.</td><td>Premiers secours, Couture arcanique, Chaînes brisées</td></tr>
+      <tr><td>Sommeil</td><td>Incapable d'agir ou de se déplacer ; esquive -100 %.</td><td>Tranquillité d'esprit</td></tr>
+      <tr><td>Sourd</td><td>Perception réduite, précision -20 %, esquive -30 %.</td><td>Non indiqué</td></tr>
+      <tr><td>Suffocation</td><td>Détruit l'armure magique à chaque tour.</td><td>Premiers secours, Bulles de respiration, Couture arcanique</td></tr>
+      <tr><td>Terreur</td><td>Le personnage s'enfuit ; esquive -20 %.</td><td>Tranquillité d'esprit, Enragement, Couture arcanique</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Source</h2>
+  <ul>
+    <li><a href="https://www.rpgsoluce.com/soluces/ps4/dos2/guides/surfaces.htm">RPGSoluce : surfaces et nuages</a></li>
+    <li><a href="https://www.rpgsoluce.com/soluces/ps4/dos2/guides/alterations.htm">RPGSoluce : altérations d'état</a></li>
+  </ul>
+
+  <footer>Guide communautaire non officiel. Aucun lien avec Larian Studios. Version PS4 de la source.</footer>
+</main>
+<script src="theme.js"></script>
+</body>
+</html>
