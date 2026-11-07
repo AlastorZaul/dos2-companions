@@ -25,6 +25,7 @@ Site en ligne : https://alastorzaul.github.io/dos2-companions/
 - **Mots-clés** : race, personnalité, réputation et arènes.
 - **Surfaces et états** : feu, glace, poison, et les altérations.
 - **Lexique** : termes français et anglais.
+- **Vérification des builds** : corrections faites et points restant à vérifier.
 
 ### Outils
 - **Calculateur de points** : points disponibles par niveau, avec vérification de la répartition.
