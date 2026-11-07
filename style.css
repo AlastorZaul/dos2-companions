@@ -125,7 +125,11 @@ footer { margin-top: 60px; color: var(--muted); font-size: 0.85rem; }
     background: var(--bg);
   }
   nav.site-nav { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
-  nav.site-nav .nav-group { display: flex; flex-direction: column; gap: 1px; }
+  nav.site-nav .nav-group { display: block; }
+  nav.site-nav details.nav-group > summary { list-style: none; cursor: pointer; }
+  nav.site-nav details.nav-group > summary::-webkit-details-marker { display: none; }
+  nav.site-nav .nav-title::after { content: "▾"; float: right; font-weight: normal; }
+  nav.site-nav details:not([open]) > .nav-title::after { content: "▸"; }
   nav.site-nav .nav-title {
     display: block;
     margin: 14px 0 4px;

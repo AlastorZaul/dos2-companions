@@ -19,3 +19,11 @@
   });
   nav.appendChild(btn);
 })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Sur grand écran, on replie les sections qui ne contiennent pas la page courante.
+  if (!window.matchMedia || !window.matchMedia('(min-width: 1000px)').matches) return;
+  document.querySelectorAll('nav.site-nav details.nav-group').forEach(function (d) {
+    if (!d.querySelector('a[aria-current="page"]')) d.removeAttribute('open');
+  });
+});
