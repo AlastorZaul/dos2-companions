@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculateur de points : DOS2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html">Accueil</a>
+  <a href="pyro.html">Pyro</a>
+  <a href="physique.html">Physique</a>
+  <a href="clerc.html">Clerc</a>
+  <a href="races.html">Races</a>
+  <a href="calculateur.html" aria-current="page">Calculateur</a>
+</nav>
+<main>
+
+  <h1>Calculateur de points</h1>
+  <p class="subtitle">Divinity: Original Sin 2</p>
+
+  <div class="card">
+    <p>
+      Calcule les points disponibles jusqu'à un niveau donné, puis vérifie que ta répartition ne dépasse pas le budget.
+      Ce calcul suit les règles de progression du guide (niveau 1 : 3 attributs et 2 compétences ; ensuite 2 attributs et 1 compétence par niveau).
+      Il ne prend pas en compte les bonus d'équipement ni les points d'attributs gagnés autrement.
+    </p>
+
+    <label for="lvl">Niveau du personnage (1 à 33)</label>
+    <input id="lvl" type="number" min="1" max="33" value="10">
+
+    <label for="attrSpent">Points d'attributs dépensés</label>
+    <input id="attrSpent" type="number" min="0" value="0">
+
+    <label for="skillSpent">Points de compétence dépensés</label>
+    <input id="skillSpent" type="number" min="0" value="0">
+
+    <div class="result" id="out"></div>
+  </div>
+
+  <footer>Guide communautaire non officiel. Aucun lien avec Larian Studios.</footer>
+</main>
+
+<script>
+  // Règles : niveau 1 = 3 attributs + 2 compétences ; niveaux suivants = 2 attributs + 1 compétence.
+  // Talents aux niveaux 1, 3, 8, 13, 18, 23, 28, 33.
+  const lvlInput = document.getElementById('lvl');
+  const attrInput = document.getElementById('attrSpent');
+  const skillInput = document.getElementById('skillSpent');
+  const out = document.getElementById('out');
+  const TALENT_LEVELS = [1, 3, 8, 13, 18, 23, 28, 33];
+
+  function budget(level) {
+    const attr = 3 + 2 * (level - 1);
+    const skill = 2 + (level - 1);
+    const talents = TALENT_LEVELS.filter(l => l <= level).length;
+    return { attr, skill, talents };
+  }
+
+  function render() {
+    const level = Math.min(33, Math.max(1, parseInt(lvlInput.value, 10) || 1));
+    const attrSpent = Math.max(0, parseInt(attrInput.value, 10) || 0);
+    const skillSpent = Math.max(0, parseInt(skillInput.value, 10) || 0);
+    const b = budget(level);
+    const attrLeft = b.attr - attrSpent;
+    const skillLeft = b.skill - skillSpent;
+
+    const line = (label, total, spent, left) => {
+      const cls = left < 0 ? 'over' : '';
+      const note = left < 0 ? ' (dépassement de ' + (-left) + ')' : '';
+      return `<p class="${cls}">${label} : ${total} au total, ${spent} dépensés, <strong>${left} restants</strong>${note}</p>`;
+    };
+
+    out.innerHTML =
+      `<p>Niveau ${level} : ${b.talents} talent(s) disponible(s).</p>` +
+      line("Points d'attributs", b.attr, attrSpent, attrLeft) +
+      line('Points de compétence', b.skill, skillSpent, skillLeft);
+  }
+
+  [lvlInput, attrInput, skillInput].forEach(el => el.addEventListener('input', render));
+  render();
+</script>
+</body>
+</html>
