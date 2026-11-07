@@ -55,9 +55,7 @@
       padding: 16px 20px;
       margin: 16px 0;
     }
-    .warning {
-      border-left: 4px solid var(--accent);
-    }
+    .warning { border-left: 4px solid var(--accent); }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -74,7 +72,35 @@
     ul { padding-left: 22px; }
     li { margin: 4px 0; }
     a { color: var(--accent); }
-    code { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.9em; }
+    .tabs { display: flex; gap: 8px; margin: 24px 0 0; }
+    .tabs button {
+      font: inherit;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--fg);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .tabs button[aria-selected="true"] {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .panel[hidden] { display: none; }
+    label { display: block; margin: 12px 0 4px; font-weight: bold; }
+    input[type="number"], select {
+      font: inherit;
+      padding: 6px 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--fg);
+      width: 120px;
+    }
+    .result { margin-top: 16px; font-size: 1.05rem; }
+    .result strong { color: var(--accent); }
+    .ok { color: var(--fg); }
+    .over { color: var(--accent); font-weight: bold; }
     footer { margin-top: 60px; color: var(--muted); font-size: 0.85rem; }
   </style>
 </head>
@@ -82,98 +108,174 @@
 <main>
 
   <h1>Guide Battlemage</h1>
-  <p class="subtitle">Divinity: Original Sin 2 · Solo · Difficulté Tactique · Build Pyro Battlemage (Intelligence)</p>
+  <p class="subtitle">Divinity: Original Sin 2 · Solo · Difficulté Tactique</p>
 
   <div class="card warning">
     <strong>Avertissement.</strong> Ce guide repose sur des guides communautaires et sur le wiki de DOS2. Les noms de compétences, les paliers de niveau et les valeurs peuvent changer selon la version et les patchs. Vérifie chaque point en jeu.
   </div>
 
-  <h2>1. Principe du build</h2>
+  <h2>1. Choisir ta version</h2>
   <p>
-    Le Battlemage est un hybride : il frappe au corps à corps et lance des sorts de feu.
-    Ce build privilégie la magie. L'Intelligence sert d'attribut principal, la Pyrokinésie
-    fournit les dégâts de feu, et la Guerre donne un bonus aux attaques physiques.
+    Le Battlemage mélange physique et magie. Les guides recommandent de développer l'un des deux
+    plutôt que de les répartir également. Choisis donc entre deux versions :
   </p>
-  <p>
-    Il faut choisir entre le physique et la magie. Les guides recommandent de développer
-    l'un des deux plutôt que de les répartir également : deux mains avec Force et Guerre,
-    ou bâton avec Intelligence et Pyrokinésie.
-  </p>
-
-  <h2>2. Race et attributs</h2>
   <ul>
-    <li><strong>Race :</strong> Lézard. Le preset « Pryo Battlemage » l'utilise.</li>
-    <li><strong>Attribut principal :</strong> Intelligence. Elle augmente les dégâts de toutes tes compétences.</li>
-    <li><strong>Attribut secondaire :</strong> Force, en petite quantité, pour porter l'équipement.</li>
-    <li><strong>Vitalité :</strong> Constitution si tu tiens la ligne avec un bouclier.</li>
+    <li><strong>Pyro (magie)</strong> : Intelligence, Pyrokinésie jusqu'à 10, Guerre 2 à 3 points.</li>
+    <li><strong>Physique</strong> : Force, Guerre et deux mains, avec Polymorph pour les attributs supplémentaires.</li>
   </ul>
 
-  <h2>3. Règles de progression</h2>
-  <div class="card">
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" aria-controls="pyro" id="tab-pyro">Pyro (magie)</button>
+    <button role="tab" aria-selected="false" aria-controls="phys" id="tab-phys">Physique</button>
+  </div>
+
+  <!-- ========== VERSION PYRO ========== -->
+  <section id="pyro" class="panel" role="tabpanel" aria-labelledby="tab-pyro">
+
+    <h2>2. Pyro : principe</h2>
+    <p>
+      Ce build privilégie la magie. L'Intelligence sert d'attribut principal, la Pyrokinésie
+      fournit les dégâts de feu, et la Guerre donne un bonus aux attaques physiques.
+    </p>
+
+    <h3>Race et attributs</h3>
     <ul>
-      <li><strong>Niveau 1 :</strong> 3 points d'attributs et 2 points de compétence.</li>
-      <li><strong>Niveaux suivants :</strong> 2 points d'attributs et 1 point de compétence par niveau.</li>
-      <li><strong>Talents :</strong> aux niveaux 1, 3, 8, 13, 18, 23, 28 et 33.</li>
-      <li><strong>Plafond :</strong> 10 points maximum par compétence.</li>
-      <li><strong>Polymorph :</strong> donne des points d'attributs supplémentaires. Les guides le recommandent pour les points restants.</li>
+      <li><strong>Race :</strong> Lézard. Le preset « Pryo Battlemage » l'utilise.</li>
+      <li><strong>Attribut principal :</strong> Intelligence.</li>
+      <li><strong>Attribut secondaire :</strong> Force, en petite quantité, pour porter l'équipement.</li>
+      <li><strong>Vitalité :</strong> Constitution si tu tiens la ligne avec un bouclier.</li>
     </ul>
+
+    <h3>Compétences clés</h3>
+    <ul>
+      <li><strong>Pyrokinésie :</strong> monter à 10 points. Fireball se débloque au niveau 4 (novice), Fire Whip au niveau 9 (adepte).</li>
+      <li><strong>Guerre :</strong> 2 à 3 points pour débloquer les compétences de mêlée. Whirlwind se débloque au niveau 4.</li>
+      <li><strong>Polymorph :</strong> pour les attributs supplémentaires une fois la Pyrokinésie au maximum.</li>
+    </ul>
+
+    <h3>Talents recommandés</h3>
+    <p>Ces talents viennent du preset, pas d'un ordre vérifié :</p>
+    <ul>
+      <li><strong>Démon</strong></li>
+      <li><strong>Picture of Health</strong> (santé)</li>
+      <li><strong>Affinité élémentaire</strong></li>
+    </ul>
+
+    <h3>Plan de base par niveau</h3>
+    <div class="card warning">
+      Ce tableau suit les règles de progression. Ce ne sont pas des valeurs vérifiées : il sert de point de départ à valider en jeu.
+    </div>
+    <table>
+      <thead>
+        <tr><th>Niveaux</th><th>Attributs</th><th>Compétences</th><th>Talents</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>2 Int, 1 Force</td><td>Pyrokinésie 1, Guerre 1</td><td>1 (Démon)</td></tr>
+        <tr><td>2</td><td>2 Int</td><td>Guerre 2</td><td>—</td></tr>
+        <tr><td>3</td><td>2 Int</td><td>Pyrokinésie 2</td><td>1 (Affinité élémentaire)</td></tr>
+        <tr><td>4 à 8</td><td>2 Int par niveau</td><td>Pyrokinésie jusqu'à 5 ; Guerre 3 ; le reste en deux mains</td><td>Picture of Health vers le niveau 8</td></tr>
+        <tr><td>9 à 13</td><td>2 Int par niveau</td><td>Pyrokinésie jusqu'à 10</td><td>Talent au niveau 13</td></tr>
+        <tr><td>14 et plus</td><td>2 Int par niveau ; Polymorph pour les attributs restants</td><td>Polymorph et compétences de confort</td><td>Talents selon les paliers</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Équipement</h3>
+    <ul>
+      <li><strong>Arme :</strong> bâton d'Intelligence.</li>
+      <li><strong>Armure :</strong> résistance au feu.</li>
+      <li><strong>Accessoires :</strong> anneau ou amulette d'Intelligence.</li>
+    </ul>
+
+    <h3>Combat</h3>
+    <ul>
+      <li>Ouvre avec la Pyrokinésie pour appliquer la brûlure et enflammer la zone.</li>
+      <li>Passe au corps à corps : les attaques de mêlée infligent des dégâts de feu bonus aux ennemis en feu.</li>
+      <li>Garde une distance de sécurité. Ce build n'est pas un tank.</li>
+      <li>Soigne-toi tôt : tes sorts de feu te blessent aussi si tu te places mal dans les flammes.</li>
+    </ul>
+  </section>
+
+  <!-- ========== VERSION PHYSIQUE ========== -->
+  <section id="phys" class="panel" role="tabpanel" aria-labelledby="tab-phys" hidden>
+
+    <h2>3. Physique : principe</h2>
+    <p>
+      Ce build privilégie le corps à corps. La Force sert d'attribut principal, avec une arme à deux mains.
+      La Guerre augmente tous tes dégâts physiques. Les attaques de mêlée infligent des dégâts physiques bonus
+      aux ennemis qui saignent.
+    </p>
+
+    <h3>Race et attributs</h3>
+    <ul>
+      <li><strong>Race :</strong> au choix. Une race à Force élevée est préférable.</li>
+      <li><strong>Attribut principal :</strong> Force.</li>
+      <li><strong>Attribut secondaire :</strong> Constitution, pour tenir au corps à corps.</li>
+      <li><strong>Intelligence :</strong> minimum, uniquement pour les équipements qui la demandent.</li>
+    </ul>
+
+    <h3>Compétences clés</h3>
+    <ul>
+      <li><strong>Guerre :</strong> monter le plus haut possible. Elle donne le bonus multiplicatif aux dégâts physiques.</li>
+      <li><strong>Deux mains :</strong> monter pour les armes à deux mains.</li>
+      <li><strong>Polymorph :</strong> pour les attributs supplémentaires une fois les compétences de combat au maximum.</li>
+    </ul>
+
+    <h3>Talents recommandés</h3>
+    <p>Choisis selon ton arme. Le preset de base propose « Comeback Kid ». Vérifie les talents de corps à corps dans le wiki.</p>
+
+    <h3>Plan de base par niveau</h3>
+    <div class="card warning">
+      Ce tableau suit les mêmes règles de progression que la version Pyro. Il ne s'agit pas de valeurs vérifiées : valide-les en jeu.
+    </div>
+    <table>
+      <thead>
+        <tr><th>Niveaux</th><th>Attributs</th><th>Compétences</th><th>Talents</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>2 Force, 1 Constitution</td><td>Guerre 1, Deux mains 1</td><td>1 (Comeback Kid)</td></tr>
+        <tr><td>2</td><td>2 Force</td><td>Guerre 2</td><td>—</td></tr>
+        <tr><td>3</td><td>2 Force</td><td>Deux mains 2</td><td>1</td></tr>
+        <tr><td>4 à 8</td><td>2 Force par niveau</td><td>Guerre jusqu'à 5 ; Deux mains jusqu'à 5</td><td>Talent vers le niveau 8</td></tr>
+        <tr><td>9 à 13</td><td>2 Force par niveau</td><td>Guerre jusqu'à 10 ; Deux mains jusqu'à 10</td><td>Talent au niveau 13</td></tr>
+        <tr><td>14 et plus</td><td>2 Force par niveau ; Polymorph pour les attributs restants</td><td>Polymorph et compétences de confort</td><td>Talents selon les paliers</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Équipement</h3>
+    <ul>
+      <li><strong>Arme :</strong> arme à deux mains de Force.</li>
+      <li><strong>Armure :</strong> armure de Force, avec résistance physique.</li>
+      <li><strong>Accessoires :</strong> anneau ou amulette de Force.</li>
+    </ul>
+
+    <h3>Combat</h3>
+    <ul>
+      <li>Entre au contact et enchaîne les attaques de mêlée.</li>
+      <li>Applique le saignement quand c'est possible : tes dégâts physiques sont renforcés sur les cibles qui saignent.</li>
+      <li>Tiens la ligne avec ta Constitution, mais repositionne-toi si plusieurs ennemis t'entourent.</li>
+    </ul>
+  </section>
+
+  <!-- ========== CALCULATEUR ========== -->
+  <h2>4. Calculateur de points</h2>
+  <div class="card">
+    <p>
+      Calcule les points disponibles jusqu'à un niveau donné, puis vérifie que ta répartition ne dépasse pas le budget.
+      Ce calcul suit les règles de progression ci-dessus (niveau 1 : 3 attributs et 2 compétences ; ensuite 2 attributs et 1 compétence par niveau).
+      Il ne prend pas en compte les bonus d'équipement ni les points d'attributs gagnés autrement.
+    </p>
+
+    <label for="lvl">Niveau du personnage (1 à 33)</label>
+    <input id="lvl" type="number" min="1" max="33" value="10">
+
+    <label for="attrSpent">Points d'attributs dépensés</label>
+    <input id="attrSpent" type="number" min="0" value="0">
+
+    <label for="skillSpent">Points de compétence dépensés</label>
+    <input id="skillSpent" type="number" min="0" value="0">
+
+    <div class="result" id="out"></div>
   </div>
-
-  <h2>4. Compétences clés</h2>
-  <ul>
-    <li><strong>Pyrokinésie :</strong> monter à 10 points. Fireball se débloque au niveau 4 (novice), Fire Whip au niveau 9 (adepte).</li>
-    <li><strong>Guerre :</strong> 2 à 3 points pour débloquer les compétences de mêlée. Whirlwind se débloque au niveau 4.</li>
-    <li><strong>Deux mains :</strong> à ajouter si tu choisis la version physique.</li>
-    <li><strong>Reste :</strong> Polymorph pour les attributs supplémentaires.</li>
-  </ul>
-
-  <h2>5. Talents recommandés</h2>
-  <p>Ces talents viennent du preset, pas d'un ordre vérifié :</p>
-  <ul>
-    <li><strong>Démon</strong></li>
-    <li><strong>Picture of Health</strong> (santé)</li>
-    <li><strong>Affinité élémentaire</strong></li>
-  </ul>
-
-  <h2>6. Plan de base par niveau</h2>
-  <div class="card warning">
-    Ce tableau suit les règles ci-dessus. Ce ne sont pas des valeurs vérifiées : il sert de point de départ à valider en jeu.
-  </div>
-  <table>
-    <thead>
-      <tr><th>Niveaux</th><th>Attributs</th><th>Compétences</th><th>Talents</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>2 Int, 1 Force</td><td>Pyrokinésie 1, Guerre 1</td><td>1 (Démon)</td></tr>
-      <tr><td>2</td><td>2 Int</td><td>Guerre 2</td><td>—</td></tr>
-      <tr><td>3</td><td>2 Int</td><td>Pyrokinésie 2</td><td>1 (Affinité élémentaire)</td></tr>
-      <tr><td>4 à 8</td><td>2 Int par niveau</td><td>Pyrokinésie jusqu'à 5 ; Guerre 3 ; le reste en deux mains</td><td>Picture of Health vers le niveau 8</td></tr>
-      <tr><td>9 à 13</td><td>2 Int par niveau</td><td>Pyrokinésie jusqu'à 10</td><td>Talent au niveau 13</td></tr>
-      <tr><td>14 et plus</td><td>2 Int par niveau ; Polymorph pour les attributs restants</td><td>Polymorph et compétences de confort</td><td>Talents selon les paliers</td></tr>
-    </tbody>
-  </table>
-
-  <h2>7. Équipement</h2>
-  <ul>
-    <li><strong>Arme :</strong> bâton d'Intelligence pour ce build. Une arme à deux mains de Force pour la version physique.</li>
-    <li><strong>Armure :</strong> résistance au feu, pour ne pas te blesser avec tes propres sorts.</li>
-    <li><strong>Accessoires :</strong> anneau ou amulette d'Intelligence.</li>
-  </ul>
-
-  <h2>8. Jouer le combat</h2>
-  <ul>
-    <li>Ouvre avec la Pyrokinésie pour appliquer la brûlure et enflammer la zone.</li>
-    <li>Passe au corps à corps : les attaques de mêlée infligent des dégâts de feu bonus aux ennemis en feu.</li>
-    <li>Garde une distance de sécurité. Ce build n'est pas un tank.</li>
-    <li>Soigne-toi tôt : tes sorts de feu te blessent aussi si tu te places mal dans les flammes.</li>
-  </ul>
-
-  <h2>9. À vérifier en jeu</h2>
-  <ul>
-    <li>Le nombre exact de points par niveau selon ta version (Enhanced Edition ou non).</li>
-    <li>Les conditions de déblocage des compétences : Fireball et Fire Whip sont vérifiés, les autres non.</li>
-    <li>Les valeurs de dégâts et les talents, qui changent avec les patchs.</li>
-  </ul>
 
   <h2>Sources</h2>
   <ul>
@@ -186,5 +288,57 @@
 
   <footer>Guide communautaire non officiel. Aucun lien avec Larian Studios.</footer>
 </main>
+
+<script>
+  // Onglets Pyro / Physique
+  const tabs = document.querySelectorAll('[role="tab"]');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+      panels.forEach(p => p.hidden = (p.id !== tab.getAttribute('aria-controls')));
+    });
+  });
+
+  // Calculateur de points
+  // Règles : niveau 1 = 3 attributs + 2 compétences ; niveaux suivants = 2 attributs + 1 compétence.
+  // Talents aux niveaux 1, 3, 8, 13, 18, 23, 28, 33.
+  const lvlInput = document.getElementById('lvl');
+  const attrInput = document.getElementById('attrSpent');
+  const skillInput = document.getElementById('skillSpent');
+  const out = document.getElementById('out');
+  const TALENT_LEVELS = [1, 3, 8, 13, 18, 23, 28, 33];
+
+  function budget(level) {
+    const attr = level >= 1 ? 3 + 2 * (level - 1) : 0;
+    const skill = level >= 1 ? 2 + (level - 1) : 0;
+    const talents = TALENT_LEVELS.filter(l => l <= level).length;
+    return { attr, skill, talents };
+  }
+
+  function render() {
+    const level = Math.min(33, Math.max(1, parseInt(lvlInput.value, 10) || 1));
+    const attrSpent = Math.max(0, parseInt(attrInput.value, 10) || 0);
+    const skillSpent = Math.max(0, parseInt(skillInput.value, 10) || 0);
+    const b = budget(level);
+    const attrLeft = b.attr - attrSpent;
+    const skillLeft = b.skill - skillSpent;
+
+    const line = (label, total, spent, left) => {
+      const cls = left < 0 ? 'over' : 'ok';
+      const note = left < 0 ? ' (dépassement de ' + (-left) + ')' : '';
+      return `<p class="${cls}">${label} : ${total} au total, ${spent} dépensés, <strong>${left} restants</strong>${note}</p>`;
+    };
+
+    out.innerHTML =
+      `<p>Niveau ${level} : ${b.talents} talent(s) disponible(s).</p>` +
+      line('Points d\'attributs', b.attr, attrSpent, attrLeft) +
+      line('Points de compétence', b.skill, skillSpent, skillLeft);
+  }
+
+  [lvlInput, attrInput, skillInput].forEach(el => el.addEventListener('input', render));
+  render();
+</script>
 </body>
 </html>
