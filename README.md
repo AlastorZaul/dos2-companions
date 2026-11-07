@@ -26,6 +26,10 @@ Site en ligne : https://alastorzaul.github.io/dos2-companions/
 - **Surfaces et états** : feu, glace, poison, et les altérations.
 - **Lexique** : termes français et anglais.
 - **Équipement** : runes, recettes d'armes et d'armures, objets uniques et quête des reliques (partiel).
+- **Objets uniques** : liste par acte, avec obtention et effet.
+- **Consommables** : potions, poisons et nourriture, avec recettes.
+- **Marchands et artisanat** : fonctionnement des marchands, de l'artisanat et des runes.
+- **Arène** : modes, paramètres et personnages du combat multijoueur.
 - **Vérification des builds** : corrections faites et points restant à vérifier.
 
 ### Outils
