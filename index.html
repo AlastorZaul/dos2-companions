@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DOS2 Companions : Guide Battlemage</title>
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --fg: #1d1b18;
+      --muted: #5f5a52;
+      --accent: #9a3b12;
+      --card: #ffffff;
+      --border: #ddd6ca;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #161514;
+        --fg: #ece8e1;
+        --muted: #a39d93;
+        --accent: #e0793f;
+        --card: #1f1d1b;
+        --border: #3a3631;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #161514;
+      --fg: #ece8e1;
+      --muted: #a39d93;
+      --accent: #e0793f;
+      --card: #1f1d1b;
+      --border: #3a3631;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    h1 { font-size: 2rem; margin: 0 0 4px; }
+    h2 { font-size: 1.4rem; margin-top: 40px; border-bottom: 1px solid var(--border); padding-bottom: 6px; color: var(--accent); }
+    h3 { font-size: 1.1rem; margin-top: 24px; }
+    .subtitle { color: var(--muted); margin-top: 0; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .warning {
+      border-left: 4px solid var(--accent);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--card); }
+    ul { padding-left: 22px; }
+    li { margin: 4px 0; }
+    a { color: var(--accent); }
+    code { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.9em; }
+    footer { margin-top: 60px; color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+<main>
+
+  <h1>Guide Battlemage</h1>
+  <p class="subtitle">Divinity: Original Sin 2 · Solo · Difficulté Tactique · Build Pyro Battlemage (Intelligence)</p>
+
+  <div class="card warning">
+    <strong>Avertissement.</strong> Ce guide repose sur des guides communautaires et sur le wiki de DOS2. Les noms de compétences, les paliers de niveau et les valeurs peuvent changer selon la version et les patchs. Vérifie chaque point en jeu.
+  </div>
+
+  <h2>1. Principe du build</h2>
+  <p>
+    Le Battlemage est un hybride : il frappe au corps à corps et lance des sorts de feu.
+    Ce build privilégie la magie. L'Intelligence sert d'attribut principal, la Pyrokinésie
+    fournit les dégâts de feu, et la Guerre donne un bonus aux attaques physiques.
+  </p>
+  <p>
+    Il faut choisir entre le physique et la magie. Les guides recommandent de développer
+    l'un des deux plutôt que de les répartir également : deux mains avec Force et Guerre,
+    ou bâton avec Intelligence et Pyrokinésie.
+  </p>
+
+  <h2>2. Race et attributs</h2>
+  <ul>
+    <li><strong>Race :</strong> Lézard. Le preset « Pryo Battlemage » l'utilise.</li>
+    <li><strong>Attribut principal :</strong> Intelligence. Elle augmente les dégâts de toutes tes compétences.</li>
+    <li><strong>Attribut secondaire :</strong> Force, en petite quantité, pour porter l'équipement.</li>
+    <li><strong>Vitalité :</strong> Constitution si tu tiens la ligne avec un bouclier.</li>
+  </ul>
+
+  <h2>3. Règles de progression</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Niveau 1 :</strong> 3 points d'attributs et 2 points de compétence.</li>
+      <li><strong>Niveaux suivants :</strong> 2 points d'attributs et 1 point de compétence par niveau.</li>
+      <li><strong>Talents :</strong> aux niveaux 1, 3, 8, 13, 18, 23, 28 et 33.</li>
+      <li><strong>Plafond :</strong> 10 points maximum par compétence.</li>
+      <li><strong>Polymorph :</strong> donne des points d'attributs supplémentaires. Les guides le recommandent pour les points restants.</li>
+    </ul>
+  </div>
+
+  <h2>4. Compétences clés</h2>
+  <ul>
+    <li><strong>Pyrokinésie :</strong> monter à 10 points. Fireball se débloque au niveau 4 (novice), Fire Whip au niveau 9 (adepte).</li>
+    <li><strong>Guerre :</strong> 2 à 3 points pour débloquer les compétences de mêlée. Whirlwind se débloque au niveau 4.</li>
+    <li><strong>Deux mains :</strong> à ajouter si tu choisis la version physique.</li>
+    <li><strong>Reste :</strong> Polymorph pour les attributs supplémentaires.</li>
+  </ul>
+
+  <h2>5. Talents recommandés</h2>
+  <p>Ces talents viennent du preset, pas d'un ordre vérifié :</p>
+  <ul>
+    <li><strong>Démon</strong></li>
+    <li><strong>Picture of Health</strong> (santé)</li>
+    <li><strong>Affinité élémentaire</strong></li>
+  </ul>
+
+  <h2>6. Plan de base par niveau</h2>
+  <div class="card warning">
+    Ce tableau suit les règles ci-dessus. Ce ne sont pas des valeurs vérifiées : il sert de point de départ à valider en jeu.
+  </div>
+  <table>
+    <thead>
+      <tr><th>Niveaux</th><th>Attributs</th><th>Compétences</th><th>Talents</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>2 Int, 1 Force</td><td>Pyrokinésie 1, Guerre 1</td><td>1 (Démon)</td></tr>
+      <tr><td>2</td><td>2 Int</td><td>Guerre 2</td><td>—</td></tr>
+      <tr><td>3</td><td>2 Int</td><td>Pyrokinésie 2</td><td>1 (Affinité élémentaire)</td></tr>
+      <tr><td>4 à 8</td><td>2 Int par niveau</td><td>Pyrokinésie jusqu'à 5 ; Guerre 3 ; le reste en deux mains</td><td>Picture of Health vers le niveau 8</td></tr>
+      <tr><td>9 à 13</td><td>2 Int par niveau</td><td>Pyrokinésie jusqu'à 10</td><td>Talent au niveau 13</td></tr>
+      <tr><td>14 et plus</td><td>2 Int par niveau ; Polymorph pour les attributs restants</td><td>Polymorph et compétences de confort</td><td>Talents selon les paliers</td></tr>
+    </tbody>
+  </table>
+
+  <h2>7. Équipement</h2>
+  <ul>
+    <li><strong>Arme :</strong> bâton d'Intelligence pour ce build. Une arme à deux mains de Force pour la version physique.</li>
+    <li><strong>Armure :</strong> résistance au feu, pour ne pas te blesser avec tes propres sorts.</li>
+    <li><strong>Accessoires :</strong> anneau ou amulette d'Intelligence.</li>
+  </ul>
+
+  <h2>8. Jouer le combat</h2>
+  <ul>
+    <li>Ouvre avec la Pyrokinésie pour appliquer la brûlure et enflammer la zone.</li>
+    <li>Passe au corps à corps : les attaques de mêlée infligent des dégâts de feu bonus aux ennemis en feu.</li>
+    <li>Garde une distance de sécurité. Ce build n'est pas un tank.</li>
+    <li>Soigne-toi tôt : tes sorts de feu te blessent aussi si tu te places mal dans les flammes.</li>
+  </ul>
+
+  <h2>9. À vérifier en jeu</h2>
+  <ul>
+    <li>Le nombre exact de points par niveau selon ta version (Enhanced Edition ou non).</li>
+    <li>Les conditions de déblocage des compétences : Fireball et Fire Whip sont vérifiés, les autres non.</li>
+    <li>Les valeurs de dégâts et les talents, qui changent avec les patchs.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul>
+    <li><a href="https://divinity.fandom.com/wiki/Battlemage_(Original_Sin_2)">Wiki DOS2 Fandom : Battlemage</a></li>
+    <li><a href="https://divinity.fandom.com/wiki/Original_Sin_2_Pyrokinetic">Wiki DOS2 Fandom : Pyrokinésie</a></li>
+    <li><a href="https://fextralife.com/divinity-original-sin-2-builds-battlemage/">Fextralife : builds Battlemage</a></li>
+    <li><a href="https://www.gamesradar.com/divinity-original-sin-2-builds">GamesRadar+ : builds DOS2</a></li>
+    <li><a href="https://steamcommunity.com/app/435150/discussions/0/1495615865228225848">Discussion Steam : points par niveau</a></li>
+  </ul>
+
+  <footer>Guide communautaire non officiel. Aucun lien avec Larian Studios.</footer>
+</main>
+</body>
+</html>
