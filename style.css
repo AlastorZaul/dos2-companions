@@ -100,3 +100,31 @@ input[type="number"] {
 .result strong { color: var(--accent); }
 .over { color: var(--accent); font-weight: bold; }
 footer { margin-top: 60px; color: var(--muted); font-size: 0.85rem; }
+
+/* Large screens : menu fixe à gauche */
+@media (min-width: 1000px) {
+  body {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    align-items: start;
+  }
+  nav.site-nav {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: none;
+    margin: 0;
+    padding: 20px 16px 32px;
+    border-right: 1px solid var(--border);
+    background: var(--bg);
+  }
+  nav.site-nav a { display: block; }
+  main {
+    margin: 0;
+    max-width: 820px;
+    padding: 24px 40px 80px;
+  }
+}
