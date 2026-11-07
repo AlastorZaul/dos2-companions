@@ -58,6 +58,9 @@ nav.site-nav a[aria-current="page"] {
   border-color: var(--accent);
   color: var(--accent);
 }
+/* Sur téléphone, les groupes restent sur une seule ligne qui se replie */
+nav.site-nav .nav-group { display: contents; }
+nav.site-nav .nav-title { display: none; }
 h1 { font-size: 2rem; margin: 16px 0 4px; }
 h2 { font-size: 1.4rem; margin-top: 40px; border-bottom: 1px solid var(--border); padding-bottom: 6px; color: var(--accent); }
 h3 { font-size: 1.1rem; margin-top: 24px; }
@@ -121,7 +124,32 @@ footer { margin-top: 60px; color: var(--muted); font-size: 0.85rem; }
     border-right: 1px solid var(--border);
     background: var(--bg);
   }
-  nav.site-nav a { display: block; }
+  nav.site-nav { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+  nav.site-nav .nav-group { display: flex; flex-direction: column; gap: 1px; }
+  nav.site-nav .nav-title {
+    display: block;
+    margin: 14px 0 4px;
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  nav.site-nav .nav-group:first-child .nav-title { margin-top: 0; }
+  nav.site-nav a {
+    display: block;
+    padding: 4px 10px;
+    font-size: 0.92rem;
+    border: none;
+    border-left: 2px solid transparent;
+    border-radius: 0 4px 4px 0;
+    background: none;
+  }
+  nav.site-nav a:hover { background: var(--card); }
+  nav.site-nav a[aria-current="page"] {
+    background: var(--card);
+    border-left-color: var(--accent);
+  }
   main {
     margin: 0;
     max-width: 820px;
