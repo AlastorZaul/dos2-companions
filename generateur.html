@@ -231,9 +231,8 @@
         ${clsLine}
         <li><strong>Attributs :</strong> ${b.attrs[0]} en priorité, puis ${b.attrs[1]}.</li>
         <li><strong>Écoles :</strong> ${label(b, 0)} en priorité, ${label(b, 1)} et ${label(b, 2)} en second. Niveaux à déterminer en jeu.</li>
-        <li><strong>Talents :</strong></li>
+        <li><strong>Talents :</strong><ul>${talents.join('')}</ul></li>
       </ul>
-      <ul>${talents.join('')}</ul>
       ${b.undead ? '<p>L\'état Mort-vivant s\'ajoute au talent racial : le poison soigne, les soins normaux blessent.</p>' : ''}
       <p><em>Tirage non testé. Les talents suivants s'obtiennent aux niveaux de talent (à vérifier sur la page Talents ou en jeu).</em></p>`;
   }
