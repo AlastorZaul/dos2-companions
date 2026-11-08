@@ -75,9 +75,6 @@
       <option value="Elfe">Elfe</option>
     </select>
 
-    <label for="racial">Talent racial</label>
-    <select id="racial"></select>
-
     <label for="cls">Classe de départ</label>
     <select id="cls"></select>
 
@@ -89,7 +86,7 @@
 
   <h2>Règles utilisées</h2>
   <ul>
-    <li><strong>Race et talent racial :</strong> selon la page <a href="races.html">Races</a>. Le talent racial se choisit parmi les deux de la race.</li>
+    <li><strong>Race et talents raciaux :</strong> selon la page <a href="races.html">Races</a>. La race donne ses deux talents d'office, sans choix (GamePressure).</li>
     <li><strong>Classe :</strong> les archétypes de la page <a href="classes.html">Classes</a> (RPGSoluce). Ils fixent les attributs et les écoles de départ. Si la classe est choisie, ses attributs et écoles remplacent le tirage.</li>
     <li><strong>Prérequis :</strong> un talent n'est retenu que si son école est dans les écoles du build, ou s'il n'en demande pas.</li>
     <li><strong>Incompatibilités :</strong> Bourreau et Pion, Démon et Complètement givré, Canon de verre et Loup solitaire.</li>
@@ -177,7 +174,6 @@
   };
 
   const raceSel = document.getElementById('race');
-  const racialSel = document.getElementById('racial');
   const clsSel = document.getElementById('cls');
   const undeadBox = document.getElementById('withUndead');
   const out = document.getElementById('out');
@@ -186,18 +182,10 @@
   clsSel.innerHTML = '<option value="random">Aléatoire</option><option value="none">Aucune (tirage libre)</option>' +
     CLASSES.map((c, i) => `<option value="${i}">${c.n}</option>`).join('');
 
-  // Remplit les talents raciaux selon la race choisie.
-  function fillRacial() {
-    const race = raceSel.value;
-    const opts = race === 'random' ? ['random'] : ['random', ...RACES[race]];
-    racialSel.innerHTML = opts.map(o => `<option value="${o}">${o === 'random' ? 'Aléatoire' : o}</option>`).join('');
-  }
-  raceSel.addEventListener('change', fillRacial);
-  fillRacial();
 
   function generate() {
     const raceChoice = raceSel.value === 'random' ? pick(Object.keys(RACES)) : raceSel.value;
-    const racialChoice = racialSel.value === 'random' || racialSel.value === '' ? pick(RACES[raceChoice]) : racialSel.value;
+    const racialChoice = RACES[raceChoice];
     const clsValue = clsSel.value;
     let cls = null;
     if (clsValue === 'random') cls = pick(CLASSES);
@@ -217,7 +205,6 @@
       if (t.req && !schools.includes(t.req)) continue;
       const conflict = chosen.some(c => c.inc.includes(t.n) || t.inc.includes(c.n));
       if (conflict) continue;
-      if (t.n === racialChoice) continue;
       chosen.push(t);
     }
     const undead = undeadBox.checked || Math.random() < 0.5;
@@ -231,7 +218,7 @@
 
   function render(b) {
     const talents = [
-      `<li><strong>${b.racial}</strong> (talent racial de ${b.race}) : ${RACE_EFFECTS[b.racial]}</li>`,
+      ...b.racial.map(r => `<li><strong>${r}</strong> (talent racial de ${b.race}) : ${RACE_EFFECTS[r]}</li>`),
       ...b.chosen.map(t => `<li><strong>${t.n}</strong> : ${t.e}${t.req ? ' (prérequis : ' + t.req + ')' : ''}</li>`)
     ];
     const clsLine = b.cls
@@ -240,7 +227,7 @@
     return `
       <h3>Fiche de création : ${b.race}${b.undead ? ' Mort-vivant' : ''}</h3>
       <ul>
-        <li><strong>Race :</strong> ${b.race}, avec le talent racial ${b.racial}.</li>
+        <li><strong>Race :</strong> ${b.race}, avec ses deux talents raciaux donnés d'office.</li>
         ${clsLine}
         <li><strong>Attributs :</strong> ${b.attrs[0]} en priorité, puis ${b.attrs[1]}.</li>
         <li><strong>Écoles :</strong> ${label(b, 0)} en priorité, ${label(b, 1)} et ${label(b, 2)} en second. Niveaux à déterminer en jeu.</li>
