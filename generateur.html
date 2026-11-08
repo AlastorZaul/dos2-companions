@@ -80,7 +80,7 @@
 
     <label><input id="withUndead" type="checkbox"> Ajouter l'état Mort-vivant (sinon tiré une fois sur deux)</label>
 
-    <p><button id="gen" type="button" style="padding:.5rem 1rem;font:inherit;cursor:pointer;">Générer</button></p>
+    <p><button id="gen" type="button" class="btn">Générer</button></p>
     <div id="out"></div>
   </div>
 
@@ -218,8 +218,8 @@
 
   function render(b) {
     const talents = [
-      ...b.racial.map(r => `<li><strong>${r}</strong> (talent racial de ${b.race}) : ${RACE_EFFECTS[r]}</li>`),
-      ...b.chosen.map(t => `<li><strong>${t.n}</strong> : ${t.e}${t.req ? ' (prérequis : ' + t.req + ')' : ''}</li>`)
+      ...b.racial.map(r => `<div class="card talent-card"><strong>${r}</strong> <span class="muted">(talent racial de ${b.race})</span><br>${RACE_EFFECTS[r]}</div>`),
+      ...b.chosen.map(t => `<div class="card talent-card"><strong>${t.n}</strong>${t.req ? ' <span class="muted">(prérequis : ' + t.req + ')</span>' : ''}<br>${t.e}</div>`)
     ];
     const clsLine = b.cls
       ? `<li><strong>Classe :</strong> ${b.cls.n}. ${b.cls.note}</li>`
@@ -231,7 +231,7 @@
         ${clsLine}
         <li><strong>Attributs :</strong> ${b.attrs[0]} en priorité, puis ${b.attrs[1]}.</li>
         <li><strong>Écoles :</strong> ${label(b, 0)} en priorité, ${label(b, 1)} et ${label(b, 2)} en second. Niveaux à déterminer en jeu.</li>
-        <li><strong>Talents :</strong><ul>${talents.join('')}</ul></li>
+        <li><strong>Talents :</strong>${talents.join('')}</li>
       </ul>
       ${b.undead ? '<p>L\'état Mort-vivant s\'ajoute au talent racial : le poison soigne, les soins normaux blessent.</p>' : ''}
       <p><em>Tirage non testé. Les talents suivants s'obtiennent aux niveaux de talent (à vérifier sur la page Talents ou en jeu).</em></p>`;

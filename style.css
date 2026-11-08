@@ -181,11 +181,95 @@ footer { margin-top: 60px; color: var(--muted); font-size: 0.85rem; }
 
 /* Spoilers : masqués tant que l'interrupteur n'est pas activé */
 html.hide-spoilers nav.site-nav a.spoiler-link { display: none; }
-html.hide-spoilers body[data-spoiler] main > :not(h1):not(.subtitle) { display: none; }
-html.hide-spoilers body[data-spoiler] main::after {
-  content: "Contenu masqué. Active les spoilers avec l'icône œil du menu.";
+html.hide-spoilers body[data-spoiler] main > :not(h1):not(.subtitle):not(.spoiler-gate) { display: none; }
+
+/* --- Lisibilité des tableaux --- */
+.table-wrap { overflow-x: auto; margin: 16px 0; -webkit-overflow-scrolling: touch; }
+.table-wrap > table { margin: 0; }
+.table-wrap.long { max-height: 70vh; overflow: auto; }
+.table-wrap.long thead th { position: sticky; top: 0; z-index: 1; }
+tbody tr:nth-child(even) td { background: rgba(127, 127, 127, 0.07); }
+tbody td:first-child { font-weight: 600; }
+
+/* --- Polices : sans-serif pour l'interface et les données --- */
+nav.site-nav, table, th, td, label, .badge, .btn, .filter-input, .toc, .spoiler-gate, input, select, button {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- Focus visible au clavier --- */
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- Boutons et champs --- */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover { background: var(--accent); color: var(--bg); }
+.filter-input {
   display: block;
-  margin-top: 16px;
-  color: var(--muted);
-  font-style: italic;
+  width: 100%;
+  max-width: 26rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--fg);
+  font: inherit;
+}
+
+/* --- Sommaire --- */
+.toc {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 0.95rem;
+}
+.toc summary { cursor: pointer; font-weight: bold; color: var(--accent); }
+.toc ul { margin: 8px 0 0; columns: 2; column-gap: 24px; }
+.toc li { break-inside: avoid; }
+@media (max-width: 600px) { .toc ul { columns: 1; } }
+
+/* --- Pastilles de statut --- */
+:root { --ok: #2f7a3a; --warn: #a4560e; --unk: #6b655c; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --ok: #8fd196; --warn: #f0a35e; --unk: #b3ada3; }
+}
+:root[data-theme="dark"] { --ok: #8fd196; --warn: #f0a35e; --unk: #b3ada3; }
+.badge {
+  display: inline-block;
+  padding: 1px 9px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.badge-ok { color: var(--ok); }
+.badge-warn { color: var(--warn); }
+.badge-unk { color: var(--unk); }
+
+/* --- Cartes de talents (générateur) --- */
+.talent-card { padding: 10px 14px; margin: 8px 0; }
+.muted { color: var(--muted); }
+
+/* --- Impression --- */
+@media print {
+  nav.site-nav, .tool-icons, .toc, .spoiler-gate, .btn { display: none !important; }
+  body { display: block !important; background: #fff; color: #000; }
+  main { max-width: none; padding: 0; }
+  .card, table, .table-wrap { break-inside: avoid; }
+  .table-wrap.long { max-height: none; overflow: visible; }
+  h2 { break-after: avoid; }
+  a { color: #000; }
 }

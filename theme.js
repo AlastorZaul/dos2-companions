@@ -47,6 +47,24 @@
     paint(spoilersOn);
   });
   (nav.querySelector('.tool-icons') || nav).appendChild(sp);
+
+  // Pages à spoilers : une carte claire avec un bouton, à la place du texte gris.
+  if (document.body.hasAttribute('data-spoiler')) {
+    const main = document.querySelector('main');
+    const anchor = main && (main.querySelector('.subtitle') || main.querySelector('h1'));
+    if (anchor) {
+      const gate = document.createElement('div');
+      gate.className = 'spoiler-gate';
+      gate.innerHTML = '<p><strong>Contenu masqué.</strong> Cette page contient des spoilers.</p>';
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'btn';
+      b.textContent = 'Afficher les spoilers';
+      b.addEventListener('click', () => sp.click());
+      gate.appendChild(b);
+      anchor.after(gate);
+    }
+  }
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
