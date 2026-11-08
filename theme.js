@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // Sur grand écran, on replie les sections qui ne contiennent pas la page courante.
   if (!window.matchMedia || !window.matchMedia('(min-width: 1000px)').matches) return;
   document.querySelectorAll('nav.site-nav details.nav-group').forEach(function (d) {
+    // Le groupe Outils reste ouvert : il contient le générateur et les suggestions, à garder visibles.
+    if (d.querySelector('.tool-icons')) return;
     if (!d.querySelector('a[aria-current="page"]')) d.removeAttribute('open');
   });
 });
