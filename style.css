@@ -178,3 +178,14 @@ footer { margin-top: 60px; color: var(--muted); font-size: 0.85rem; }
     padding: 24px 40px 80px;
   }
 }
+
+/* Spoilers : masqués tant que l'interrupteur n'est pas activé */
+html.hide-spoilers nav.site-nav a.spoiler-link { display: none; }
+html.hide-spoilers body[data-spoiler] main > :not(h1):not(.subtitle) { display: none; }
+html.hide-spoilers body[data-spoiler] main::after {
+  content: "Contenu masqué. Active les spoilers avec l'icône œil du menu.";
+  display: block;
+  margin-top: 16px;
+  color: var(--muted);
+  font-style: italic;
+}
