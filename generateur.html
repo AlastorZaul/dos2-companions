@@ -205,9 +205,10 @@
 
     const attrs = cls ? cls.attrs.concat(shuffle(ATTRIBUTES).filter(a => !cls.attrs.includes(a))).slice(0, 2) : shuffle(ATTRIBUTES).slice(0, 2);
     const schools = cls ? cls.schools.slice(0, 3) : shuffle(SCHOOLS).slice(0, 3);
+    const randomSchools = cls ? [] : schools.slice();
     while (schools.length < 3) {
       const extra = pick(SCHOOLS);
-      if (!schools.includes(extra)) schools.push(extra);
+      if (!schools.includes(extra)) { schools.push(extra); randomSchools.push(extra); }
     }
 
     const chosen = [];
@@ -220,7 +221,12 @@
       chosen.push(t);
     }
     const undead = undeadBox.checked || Math.random() < 0.5;
-    return { race: raceChoice, racial: racialChoice, cls, attrs, schools, chosen, undead };
+    return { race: raceChoice, racial: racialChoice, cls, attrs, schools, randomSchools, chosen, undead };
+  }
+
+  function label(b, i) {
+    const s = b.schools[i];
+    return b.randomSchools.includes(s) ? s + ' (tiré au hasard)' : s;
   }
 
   function render(b) {
@@ -237,7 +243,7 @@
         <li><strong>Race :</strong> ${b.race}, avec le talent racial ${b.racial}.</li>
         ${clsLine}
         <li><strong>Attributs :</strong> ${b.attrs[0]} en priorité, puis ${b.attrs[1]}.</li>
-        <li><strong>Écoles :</strong> ${b.schools[0]} en priorité, ${b.schools[1]} et ${b.schools[2]} en second. Niveaux à déterminer en jeu.</li>
+        <li><strong>Écoles :</strong> ${label(b, 0)} en priorité, ${label(b, 1)} et ${label(b, 2)} en second. Niveaux à déterminer en jeu.</li>
         <li><strong>Talents :</strong></li>
       </ul>
       <ul>${talents.join('')}</ul>
