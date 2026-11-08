@@ -60,6 +60,7 @@ Les données viennent de :
 - **Guides communautaires** (GamePur, GamesRadar+, Steam) : builds et points par niveau.
 
 Limites à garder en tête :
+- Les guides sont pensés pour le mode **Classique**. Les chiffres d'ennemis viennent du wiki Fextralife, et les sources ne s'accordent pas toutes sur les détails de la difficulté.
 - Plusieurs sources datent de 2017-2018 et sont antérieures à la Definitive Edition.
 - Les données de RPGSoluce viennent de la version PS4. Certaines valeurs peuvent différer sur PC.
 - Les tableaux de progression par niveau sont des plans de base, pas des valeurs vérifiées en jeu.
