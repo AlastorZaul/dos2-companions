@@ -59,28 +59,44 @@
 <main>
 
   <h1>Générateur de builds</h1>
-  <p class="subtitle">Tire au sort une race, des écoles, des attributs et des talents, en respectant les prérequis et incompatibilités de la page Talents.</p>
+  <p class="subtitle">Aide à la création de personnage : choisis la race et la classe, ou laisse tirer au sort. Le résultat respecte les prérequis et incompatibilités de la page Talents.</p>
 
   <div class="card warning">
-    <strong>Aléatoire.</strong> Le tirage donne un point de départ, pas un build validé. Les niveaux de compétences ne sont pas tirés : ils restent à déterminer en jeu. Rien n'a été testé.
+    <strong>Non testé.</strong> Le résultat est un point de départ, pas un build validé. Les niveaux de compétences ne sont pas donnés par les sources : ils restent à déterminer en jeu.
   </div>
 
   <div class="card">
-    <label><input id="withUndead" type="checkbox"> Ajouter l'état Mort-vivant (une chance sur deux)</label>
-    <p><button id="gen" type="button" style="padding:.5rem 1rem;font:inherit;cursor:pointer;">Tirer un build</button></p>
+    <label for="race">Race</label>
+    <select id="race">
+      <option value="random">Aléatoire</option>
+      <option value="Humain">Humain</option>
+      <option value="Lézard">Lézard</option>
+      <option value="Nain">Nain</option>
+      <option value="Elfe">Elfe</option>
+    </select>
+
+    <label for="racial">Talent racial</label>
+    <select id="racial"></select>
+
+    <label for="cls">Classe de départ</label>
+    <select id="cls"></select>
+
+    <label><input id="withUndead" type="checkbox"> Ajouter l'état Mort-vivant (sinon tiré une fois sur deux)</label>
+
+    <p><button id="gen" type="button" style="padding:.5rem 1rem;font:inherit;cursor:pointer;">Générer</button></p>
     <div id="out"></div>
   </div>
 
   <h2>Règles utilisées</h2>
   <ul>
-    <li><strong>Race et talent racial :</strong> un talent racial parmi les deux de la race tirée (Humain, Lézard, Nain, Elfe), selon la page Races.</li>
-    <li><strong>Prérequis :</strong> un talent n'est tiré que si son école est dans les trois écoles tirées, ou s'il n'en demande pas.</li>
+    <li><strong>Race et talent racial :</strong> selon la page <a href="races.html">Races</a>. Le talent racial se choisit parmi les deux de la race.</li>
+    <li><strong>Classe :</strong> les archétypes de la page <a href="classes.html">Classes</a> (RPGSoluce). Ils fixent les attributs et les écoles de départ. Si la classe est choisie, ses attributs et écoles remplacent le tirage.</li>
+    <li><strong>Prérequis :</strong> un talent n'est retenu que si son école est dans les écoles du build, ou s'il n'en demande pas.</li>
     <li><strong>Incompatibilités :</strong> Bourreau et Pion, Démon et Complètement givré, Canon de verre et Loup solitaire.</li>
     <li><strong>Exclus :</strong> les talents liés à une quête (Baiser de l'araignée, Enracinement, Secrets professionnels) et ceux du niveau 2 (Super compétent, Taille XXL).</li>
-    <li><strong>Source :</strong> talents et incompatibilités selon RPGSoluce (page Talents), races selon la page Races.</li>
   </ul>
 
-  <footer>Guide communautaire non officiel. Aucun lien avec Larian Studios. Tirage aléatoire, non testé.</footer>
+  <footer>Guide communautaire non officiel. Aucun lien avec Larian Studios. Tirage et classes non testés.</footer>
 </main>
 <script>
 (function () {
@@ -100,6 +116,19 @@
     "Savoir ancestral": "+1 en Maître du savoir.",
     "Mangeur de cadavres": "Accès aux souvenirs des défunts en mangeant leur cadavre."
   };
+  // Classes de la page Classes (RPGSoluce). Attributs et écoles dans l'ordre de priorité.
+  const CLASSES = [
+    { n: "Archer sanguin", attrs: ["Dextérité", "Intelligence"], schools: ["Chasseur", "Nécromancien"], note: "Hémorragies et dégâts physiques par le sang, avec Tortionnaire." },
+    { n: "Chevalier de la mort", attrs: ["Force"], schools: ["Art de la guerre", "Nécromancien", "Métamorphose", "Fripouille", "Hydrosophiste"], note: "Guerrier très résistant, qui survit grâce à Cage d'ossements et au vol de vie." },
+    { n: "Druide", attrs: ["Mémoire", "Intelligence"], schools: ["Invocation"], note: "Invocateur qui renforce ses créatures. Demande beaucoup de Mémoire. Les compétences d'Infusion citées par la source ne sont pas listées ici." },
+    { n: "Mage de combat", attrs: ["Intelligence", "Perception", "Constitution"], schools: ["Pyrokinésie", "Art de la guerre"], note: "Guerrier-mage aux dégâts de feu. Correspond au build Pyro du site." },
+    { n: "Magicien du fléau", attrs: ["Intelligence", "Perception"], schools: ["Pyrokinésie", "Géomancien"], note: "Brûlure et empoisonnement, avec Tortionnaire." },
+    { n: "Maître de marées", attrs: ["Intelligence", "Perception"], schools: ["Hydrosophiste"], note: "Dégâts d'eau et de givre, qui peut aussi soigner." },
+    { n: "Ranger", attrs: ["Dextérité", "Perception"], schools: ["Chasseur", "Invocation", "Art de la guerre"], note: "Archer peu mobile aux lourds dégâts. Une autre source ne cite pas Invocation : à vérifier." },
+    { n: "Terramancien", attrs: ["Intelligence", "Perception", "Constitution"], schools: ["Géomancien", "Nécromancien"], note: "Dégâts physiques et magiques, avec récupération de vie." },
+    { n: "Chasseur de tempêtes (loup solitaire)", attrs: ["Intelligence", "Mémoire", "Perception"], schools: ["Aérothurge", "Chasseur", "Hydrosophiste", "Art de la guerre"], note: "Magicien-guerrier mobile, qui inflige de lourds dégâts d'air. Pensé pour le loup solitaire." },
+    { n: "Assassin (loup solitaire)", attrs: ["Dextérité", "Perception"], schools: ["Fripouille", "Art de la guerre", "Chasseur"], note: "Lourds dégâts à distance avec une grande mobilité. Pensé pour le loup solitaire." }
+  ];
   const SCHOOLS = ["Art de la guerre", "Chasseur", "Fripouille", "Pyrokinésie", "Hydrosophiste", "Aérothurge", "Géomancien", "Nécromancien", "Invocation", "Métamorphose"];
   const ATTRIBUTES = ["Force", "Dextérité", "Intelligence", "Constitution", "Mémoire", "Perception"];
   // Talents tirables : effet, école requise (ou null), incompatibilités.
@@ -147,49 +176,79 @@
     return a;
   };
 
-  function generate(withUndead) {
-    const race = pick(Object.keys(RACES));
-    const racial = pick(RACES[race]);
-    const schools = shuffle(SCHOOLS).slice(0, 3);
-    const attrs = shuffle(ATTRIBUTES).slice(0, 2);
+  const raceSel = document.getElementById('race');
+  const racialSel = document.getElementById('racial');
+  const clsSel = document.getElementById('cls');
+  const undeadBox = document.getElementById('withUndead');
+  const out = document.getElementById('out');
+
+  // Remplit la liste des classes.
+  clsSel.innerHTML = '<option value="random">Aléatoire</option><option value="none">Aucune (tirage libre)</option>' +
+    CLASSES.map((c, i) => `<option value="${i}">${c.n}</option>`).join('');
+
+  // Remplit les talents raciaux selon la race choisie.
+  function fillRacial() {
+    const race = raceSel.value;
+    const opts = race === 'random' ? ['random'] : ['random', ...RACES[race]];
+    racialSel.innerHTML = opts.map(o => `<option value="${o}">${o === 'random' ? 'Aléatoire' : o}</option>`).join('');
+  }
+  raceSel.addEventListener('change', fillRacial);
+  fillRacial();
+
+  function generate() {
+    const raceChoice = raceSel.value === 'random' ? pick(Object.keys(RACES)) : raceSel.value;
+    const racialChoice = racialSel.value === 'random' || racialSel.value === '' ? pick(RACES[raceChoice]) : racialSel.value;
+    const clsValue = clsSel.value;
+    let cls = null;
+    if (clsValue === 'random') cls = pick(CLASSES);
+    else if (clsValue !== 'none') cls = CLASSES[Number(clsValue)];
+
+    const attrs = cls ? cls.attrs.concat(shuffle(ATTRIBUTES).filter(a => !cls.attrs.includes(a))).slice(0, 2) : shuffle(ATTRIBUTES).slice(0, 2);
+    const schools = cls ? cls.schools.slice(0, 3) : shuffle(SCHOOLS).slice(0, 3);
+    while (schools.length < 3) {
+      const extra = pick(SCHOOLS);
+      if (!schools.includes(extra)) schools.push(extra);
+    }
+
     const chosen = [];
-    const candidates = shuffle(POOL);
-    for (const t of candidates) {
+    for (const t of shuffle(POOL)) {
       if (chosen.length >= 2) break;
       if (t.req && !schools.includes(t.req)) continue;
       const conflict = chosen.some(c => c.inc.includes(t.n) || t.inc.includes(c.n));
       if (conflict) continue;
+      if (t.n === racialChoice) continue;
       chosen.push(t);
     }
-    const undead = withUndead && Math.random() < 0.5;
-    return { race, racial, schools, attrs, chosen, undead };
+    const undead = undeadBox.checked || Math.random() < 0.5;
+    return { race: raceChoice, racial: racialChoice, cls, attrs, schools, chosen, undead };
   }
 
   function render(b) {
-    const esc = (s) => s;
     const talents = [
-      `<li><strong>${esc(b.racial)}</strong> (talent racial de ${esc(b.race)}) : ${esc(RACE_EFFECTS[b.racial])}</li>`,
-      ...b.chosen.map(t => `<li><strong>${esc(t.n)}</strong> : ${esc(t.e)}${t.req ? ' (prérequis : ' + esc(t.req) + ')' : ''}</li>`)
+      `<li><strong>${b.racial}</strong> (talent racial de ${b.race}) : ${RACE_EFFECTS[b.racial]}</li>`,
+      ...b.chosen.map(t => `<li><strong>${t.n}</strong> : ${t.e}${t.req ? ' (prérequis : ' + t.req + ')' : ''}</li>`)
     ];
+    const clsLine = b.cls
+      ? `<li><strong>Classe :</strong> ${b.cls.n}. ${b.cls.note}</li>`
+      : `<li><strong>Classe :</strong> aucune choisie.</li>`;
     return `
-      <h3>${esc(b.race)}${b.undead ? ' Mort-vivant' : ''}</h3>
+      <h3>Fiche de création : ${b.race}${b.undead ? ' Mort-vivant' : ''}</h3>
       <ul>
-        <li><strong>Attributs :</strong> ${esc(b.attrs[0])} en priorité, puis ${esc(b.attrs[1])}.</li>
-        <li><strong>Écoles :</strong> ${esc(b.schools[0])} en priorité, ${esc(b.schools[1])} et ${esc(b.schools[2])} en second. Niveaux à déterminer en jeu.</li>
+        <li><strong>Race :</strong> ${b.race}, avec le talent racial ${b.racial}.</li>
+        ${clsLine}
+        <li><strong>Attributs :</strong> ${b.attrs[0]} en priorité, puis ${b.attrs[1]}.</li>
+        <li><strong>Écoles :</strong> ${b.schools[0]} en priorité, ${b.schools[1]} et ${b.schools[2]} en second. Niveaux à déterminer en jeu.</li>
         <li><strong>Talents :</strong></li>
       </ul>
       <ul>${talents.join('')}</ul>
       ${b.undead ? '<p>L\'état Mort-vivant s\'ajoute au talent racial : le poison soigne, les soins normaux blessent.</p>' : ''}
-      <p><em>Build aléatoire, non testé.</em></p>`;
+      <p><em>Tirage non testé. Les talents suivants s'obtiennent aux niveaux de talent (à vérifier sur la page Talents ou en jeu).</em></p>`;
   }
 
-  const btn = document.getElementById('gen');
-  const out = document.getElementById('out');
-  const undeadBox = document.getElementById('withUndead');
-  btn.addEventListener('click', () => {
-    out.innerHTML = render(generate(undeadBox.checked));
+  document.getElementById('gen').addEventListener('click', () => {
+    out.innerHTML = render(generate());
   });
-  out.innerHTML = render(generate(undeadBox.checked));
+  out.innerHTML = render(generate());
 })();
 </script>
 <script src="theme.js"></script>
