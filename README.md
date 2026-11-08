@@ -34,6 +34,7 @@ Site en ligne : https://alastorzaul.github.io/dos2-companions/
 - **Vérification des builds** : corrections faites et points restant à vérifier.
 
 ### Outils
+- **Journal de test** : ce qui marche ou non en jeu, par build.
 - **Calculateur de points** : points disponibles par niveau, avec vérification de la répartition.
 - **Bouton Thème** : bascule entre clair et sombre. Le choix est mémorisé dans le navigateur.
 
