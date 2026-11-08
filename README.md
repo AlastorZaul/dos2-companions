@@ -16,6 +16,7 @@ Site en ligne : https://alastorzaul.github.io/dos2-companions/
 - **Pyro Battlemage** : magie, Intelligence et Pyrokinésie.
 - **Battlemage physique** : Force, Guerre et armes à deux mains.
 - **Duo** : loup solitaire à deux, répartition des rôles et compétences civiles.
+- **Builds Fextralife** : six builds détaillés du wiki Fextralife, à vérifier sur le wiki.
 - **Support loup solitaire** : build de soutien seul en loup solitaire, adapté d'un guide externe.
 - **Clerc (Ecclésiastique)** : soutien hybride, Hydrosophie, Nécromancie et Guerre.
 - **Builds maison** : combinaisons inventées par nous, à partir des talents raciaux. Non testées.
