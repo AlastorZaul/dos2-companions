@@ -6,7 +6,7 @@
   <title>Arène : DOS2</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-spoiler>
 <nav class="site-nav">
   <details class="nav-group" open>
     <summary class="nav-title">Démarrer</summary>
@@ -59,6 +59,10 @@
   <h1>Arène</h1>
   <p class="subtitle">Combat multijoueur et personnages de l&#x27;Arène.</p>
 
+  <div class="card warning">
+    <strong>Spoilers.</strong> La liste des personnages utilise des noms de l'histoire. Le guide recommande de finir la Campagne avant d'ouvrir cette page.
+  </div>
+
   <h2>Accès et modes</h2>
   <ul>
     <li><strong>Accès :</strong> depuis l'écran-titre du jeu.</li>
@@ -70,10 +74,10 @@
   <table>
     <thead><tr><th>Paramètre</th><th>Options</th></tr></thead>
     <tbody>
-      <tr><td>Carte</td><td>2, 3 ou 4 joueurs. Le nombre d'adversaires conditionne le choix.</td></tr>
+      <tr><td>Carte</td><td>Nombre de cartes selon le nombre de joueurs : 6 pour 2 joueurs, 4 pour 3, 3 pour 4.</td></tr>
       <tr><td>Temps du tour</td><td>15, 30, 45, 60, 75 secondes ou illimité. Le temps limité est conseillé contre des inconnus.</td></tr>
-      <tr><td>Personnages par joueur</td><td>De 1 à 4. Un même personnage peut être choisi jusqu'à quatre fois.</td></tr>
-      <tr><td>Emplacements</td><td>Maximum selon la carte. Ouvrables ou fermables individuellement.</td></tr>
+      <tr><td>Personnages par équipe</td><td>De 1 à 4. Un même personnage peut être choisi jusqu'à quatre fois.</td></tr>
+      <tr><td>Emplacements</td><td>Ouvrables ou fermables individuellement. Deux joueurs d'une même équipe combattent côte à côte.</td></tr>
       <tr><td>Mode de jeu</td><td>Match à mort (vaincre tous les adversaires) ou Régicide (tuer le personnage marqué adverse en protégeant le sien).</td></tr>
       <tr><td>Équipes</td><td>Chaque emplacement peut être ouvert, fermé ou confié à une IA. Les membres d'une équipe combattent côte à côte.</td></tr>
       <tr><td>Mutateurs</td><td>Bonus ou malus activés après un nombre de tours : déplacement, combat, Source. La Mort subite réduit les PV des adversaires au minimum après un nombre de tours défini.</td></tr>
@@ -84,23 +88,44 @@
   <ul>
     <li>Chaque équipe démarre d'un côté de la carte.</li>
     <li>Les personnages commencent avec un parchemin ou une grenade aléatoire, sans points de Source.</li>
-    <li>Des coffres permettent de trouver des objets de soin ou de magie.</li>
     <li>Tous possèdent la capacité Vampirisation de Source, qui vole un point de Source à un adversaire par utilisation.</li>
-    <li>Certaines cartes ont des portails. Leur couleur détermine la destination.</li>
   </ul>
 
   <h2>Personnages</h2>
   <ul>
-    <li>Seize personnages jouables, tous de niveau 10, issus de Divinity: Original Sin 2 ou de la saga Divinity.</li>
+    <li>Seize personnages jouables, tous de niveau 10, avec une arme, un talent et des compétences fixes.</li>
     <li>Ils ne sont pas personnalisables : compétences, talents et ordre des raccourcis sont fixés.</li>
     <li>Les six héros de l'histoire ne sont pas jouables.</li>
     <li>Chacun possède un seul talent. Exemples : Lohar (Pion), Tarquin (Ambidextrie), Slane (Complètement givré), Dallis (Bourreau), Radeka (Sortilège sauvage).</li>
   </ul>
 
+  <h2>Liste des seize personnages</h2>
+  <table>
+    <thead><tr><th>Personnage</th><th>Armes et compétences de combat</th><th>Talent</th></tr></thead>
+    <tbody>
+      <tr><td>Lohar</td><td>Deux armes, Fripouille, Métamorphose</td><td>Pion</td></tr>
+      <tr><td>Tarquin</td><td>Une arme, Invocation, Nécromancien</td><td>Ambidextrie</td></tr>
+      <tr><td>Slane le chevalier-dragon</td><td>Une main, Art de la guerre, Hydrosophiste</td><td>Complètement givré</td></tr>
+      <tr><td>Gareth</td><td>Une main, Art de la guerre, Géomancien</td><td>Empressement</td></tr>
+      <tr><td>Zandalor</td><td>Deux mains, Aérothurge, Hydrosophiste</td><td>Affinité élémentaire</td></tr>
+      <tr><td>Dallis, le Marteau</td><td>Deux mains, Art de la guerre, Métamorphose</td><td>Bourreau</td></tr>
+      <tr><td>Lucian</td><td>Deux mains, Art de la guerre, Pyrokinésie</td><td>Opportuniste</td></tr>
+      <tr><td>Ryker</td><td>Distance, Chasseur, Aérothurge, Invocation</td><td>En retrait</td></tr>
+      <tr><td>Seigneur Arhu</td><td>Invocation, Métamorphose</td><td>Revenant</td></tr>
+      <tr><td>Maladie</td><td>Deux mains, Art de la guerre, Aérothurge</td><td>Fortitude</td></tr>
+      <tr><td>Saheila</td><td>Distance, Chasseur, Géomancien</td><td>Ranger élémentaire</td></tr>
+      <tr><td>Braccus</td><td>Deux mains, Art de la guerre, Nécromancien</td><td>Santé de fer</td></tr>
+      <tr><td>Jahan</td><td>Deux armes, Géomancien, Pyrokinésie</td><td>Tortionnaire</td></tr>
+      <tr><td>Kniles le découpeur</td><td>Deux armes, Fripouille, Géomancien, Hydrosophiste, Nécromancien</td><td>Sangsue</td></tr>
+      <tr><td>Alexandar</td><td>Deux mains, Géomancien, Hydrosophiste</td><td>Armure vivante</td></tr>
+      <tr><td>Radeka la sorcière</td><td>Deux armes, Aérothurge, Hydrosophiste, Nécromancien</td><td>Sortilège sauvage</td></tr>
+    </tbody>
+  </table>
+
   <h2>Non couvert par la source</h2>
   <ul>
     <li>Les récompenses de l'Arène ne sont pas détaillées sur la page consultée.</li>
-    <li>Les adversaires notables ne sont pas décrits : la page indique seulement que les personnages jouables peuvent être rencontrés en jeu.</li>
+    <li>La page Fextralife de l'Arène n'a pas pu être consultée.</li>
   </ul>
 
   <h2>Sources</h2>
