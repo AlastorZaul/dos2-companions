@@ -15,6 +15,7 @@ Site en ligne : https://alastorzaul.github.io/dos2-companions/
 ### Builds
 - **Pyro Battlemage** : magie, Intelligence et Pyrokinésie.
 - **Battlemage physique** : Force, Guerre et armes à deux mains.
+- **Duo** : loup solitaire à deux, répartition des rôles et compétences civiles.
 - **Clerc (Ecclésiastique)** : soutien hybride, Hydrosophie, Nécromancie et Guerre.
 - **Builds maison** : combinaisons inventées par nous, à partir des talents raciaux. Non testées.
 
