@@ -12,6 +12,34 @@
   const nav = document.querySelector('nav.site-nav');
   if (!nav) return;
 
+  // Menu burger pour téléphone : la barre de navigation devient un panneau qui s'ouvre.
+  nav.id = nav.id || 'site-nav';
+  const bar = document.createElement('div');
+  bar.className = 'mobile-bar';
+  bar.innerHTML = '<a class="mobile-title" href="index.html">DOS2 Companions</a>';
+  const burger = document.createElement('button');
+  burger.type = 'button';
+  burger.className = 'menu-toggle';
+  burger.setAttribute('aria-controls', nav.id);
+  burger.setAttribute('aria-expanded', 'false');
+  burger.textContent = '☰ Menu';
+  bar.appendChild(burger);
+  nav.before(bar);
+  const backdrop = document.createElement('button');
+  backdrop.type = 'button';
+  backdrop.className = 'nav-backdrop';
+  backdrop.setAttribute('aria-label', 'Fermer le menu');
+  document.body.appendChild(backdrop);
+  const setNav = (open) => {
+    root.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.textContent = open ? '✕ Fermer' : '☰ Menu';
+  };
+  burger.addEventListener('click', () => setNav(!root.classList.contains('nav-open')));
+  backdrop.addEventListener('click', () => setNav(false));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setNav(false); });
+  nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setNav(false)));
+
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'tool-icon theme-toggle';
