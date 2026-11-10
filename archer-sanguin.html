@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Archer sanguin : DOS2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="site-nav">
+  <details class="nav-group" open>
+    <summary class="nav-title">Démarrer</summary>
+    <a href="index.html">Accueil</a>
+    <a href="debutant.html">Débutant</a>
+  </details>
+  <details class="nav-group" open>
+    <summary class="nav-title">Builds</summary>
+    <a href="pyro.html">Pyro</a>
+    <a href="physique.html">Physique</a>
+    <a href="clerc.html">Clerc (Ecclésiastique)</a>
+    <a href="duo.html">Duo</a>
+    <a href="support-loup-solitaire.html">Support loup solitaire</a>
+    <a href="builds-fextralife.html">Builds Fextralife</a>
+    <a href="archer-sanguin.html" aria-current="page">Archer sanguin</a>
+    <a href="builds-maison.html">Builds maison</a>
+    <a href="classes.html">Classes</a>
+  </details>
+  <details class="nav-group" open>
+    <summary class="nav-title">Référence</summary>
+    <a href="races.html">Races</a>
+    <a href="creation-personnage.html">Création de personnage</a>
+    <a href="talents.html">Talents</a>
+    <a href="competences.html">Compétences</a>
+    <a class="spoiler-link" href="motscles.html">Mots-clés</a>
+    <a href="surfaces.html">Surfaces et états</a>
+    <a class="spoiler-link" href="personnages.html">Personnages</a>
+    <a href="loup-solitaire.html">Loup solitaire</a>
+    <a href="lexique.html">Lexique</a>
+  </details>
+  <details class="nav-group" open>
+    <summary class="nav-title">Équipement</summary>
+    <a class="spoiler-link" href="equipement.html">Équipement</a>
+    <a class="spoiler-link" href="uniques.html">Objets uniques</a>
+    <a href="armes-armures.html">Armes et armures</a>
+    <a href="consommables.html">Consommables</a>
+    <a href="marchands-artisanat.html">Marchands et artisanat</a>
+    <a href="arene.html">Arène</a>
+  </details>
+  <details class="nav-group" open>
+    <summary class="nav-title">Outils</summary>
+    <div class="tool-icons">
+      <a class="tool-icon" href="suggestions.html" title="Suggestions" aria-label="Suggestions"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></a>
+      <a class="tool-icon" href="generateur.html" title="Générateur de builds" aria-label="Générateur de builds"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></a>
+      <a class="tool-icon" href="verification.html" title="Vérification" aria-label="Vérification"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></a>
+      <a class="tool-icon" href="journal.html" title="Journal de test" aria-label="Journal de test"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg></a>
+      <a class="tool-icon" href="calculateur.html" title="Calculateur" aria-label="Calculateur"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="12" y1="11" x2="12.01" y2="11"/><line x1="16" y1="11" x2="16.01" y2="11"/><line x1="8" y1="15" x2="8.01" y2="15"/><line x1="12" y1="15" x2="12.01" y2="15"/><line x1="16" y1="15" x2="16" y2="19"/><line x1="8" y1="19" x2="12" y2="19"/></svg></a>
+    </div>
+  </details>
+</nav>
+<main>
+
+  <h1>Archer sanguin</h1>
+  <p class="subtitle">Rôdeur hybride Chasseur et Nécromancien, qui inflige des dégâts physiques à plusieurs cibles. D'après le wiki Fextralife.</p>
+
+  <div class="card warning">
+    <strong>Non testé.</strong> Ce build vient du wiki Fextralife (page du 14 septembre 2018, qui mentionne la Definitive Edition). Les niveaux, les ordres et les chiffres n'ont pas été vérifiés en jeu. Note tes résultats dans le journal de test.
+  </div>
+
+  <details class="toc" open><summary>Sommaire</summary><ul><li><a href="#presentation">Présentation et rôle</a></li><li><a href="#depart">Race et classe de départ</a></li><li><a href="#attributs">Attributs</a></li><li><a href="#competences">Compétences, par niveau</a></li><li><a href="#talents">Talents, dans l'ordre</a></li><li><a href="#equipement">Équipement</a></li><li><a href="#conseils">Conseils et points faibles</a></li><li><a href="#sources">Sources</a></li></ul></details>
+
+  <h2 id="presentation">Présentation et rôle</h2>
+  <p>L'archer sanguin compense un défaut des Rôdeurs et des Nécromanciens : leurs compétences s'épuisent vite. Le build ajoute des compétences et de la polyvalence entre les deux écoles. Le saignement (Bleeding) est au centre du build : il inflige des dégâts perçants qui traversent toutes les armures.</p>
+
+  <h2 id="depart">Race et classe de départ</h2>
+  <ul>
+    <li><strong>Classe :</strong> Rôdeur.</li>
+    <li><strong>Race :</strong> Elfe. Obligatoire pour obtenir Sacrifice de chair (Flesh Sacrifice).</li>
+  </ul>
+
+  <h2 id="attributs">Attributs</h2>
+  <ul>
+    <li><strong>À la création :</strong> retirer le point de Perception (Wits) pour le mettre en Intelligence. Retirer le point de Pyrokinésie pour le mettre en Nécromancie.</li>
+    <li><strong>Répartition :</strong> Finesse et Intelligence. Ce partage est habituellement déconseillé, mais l'auteur le juge acceptable grâce à l'école Art de la guerre (Warfare), qui renforce les deux lignes de compétences.</li>
+    <li><strong>Ordre :</strong> monter la Finesse tôt, avant d'avoir accès à Étreinte de l'affamé (Grasp of the Starved). La répartition n'a pas besoin d'être parfaite.</li>
+    <li><strong>Mémoire :</strong> pas de souci, peu de compétences d'attaque de ces deux lignes l'exigent.</li>
+  </ul>
+
+  <h2 id="competences">Compétences, par niveau</h2>
+  <p>Les niveaux de compétence indiqués viennent du wiki. Vérifie-les en jeu.</p>
+  <ul>
+    <li><strong>Départ :</strong> Ricochet et Pointes élémentaires (Chasseur), Nuée de moustiques (Mosquito Swarm, Nécromancien).</li>
+    <li><strong>Niveaux 1 à 3 :</strong> Polymorphe 1 donne accès à Charge de taureau (Bull Rush) et Cape caméléon (Chameleon Cloak). Pluie de sang (Raining Blood, Nécromancien) s'obtient via Hydrosophiste 1 si le talent Tortionnaire est pris.</li>
+    <li><strong>Niveaux 4 à 8 :</strong> Chasseur 2 et Nécromancien 2 donnent accès à Retraite tactique (Tactical Retreat), Tir du ciel (Sky Shot), Infection (Infect) et Vœu de mort (Death Wish).</li>
+    <li><strong>Niveau 9 et plus :</strong> Tir balistique (Ballistic Shot, cible à éliminer), Assassinat (Assassinate, bonus contre une cible en furtivité ou invisible), Étreinte de l'affamé (Source, très puissante sur du sang au sol), Défi (Challenge, Warfare, 0 PA).</li>
+    <li><strong>Optionnelles :</strong> Chaînes de douleur (Shackles of Pain), Cage d'os (Bone Cage), Premiers secours (First Aid), Croc du tireur d'élite (Marksman's Fang).</li>
+    <li><strong>Après le niveau 3 :</strong> placer les points dans Art de la guerre. Les niveaux 3 de Nécromancien ou de Chasseur sont facultatifs. Une fois Art de la guerre au maximum, monter Chasseur pour le bonus de dégâts en hauteur.</li>
+  </ul>
+
+  <h2 id="talents">Talents, dans l'ordre</h2>
+  <ol>
+    <li><strong>Affinité élémentaire (Elemental Affinity) :</strong> à prendre dès le début. Réduit de 1 PA le coût des compétences de Nécromancien quand on utilise Sacrifice de chair.</li>
+    <li><strong>Tortionnaire (Torturer) :</strong> Charge de taureau, Pluie de sang et Nuée de moustiques appliquent le saignement à travers l'armure physique, ainsi que l'acide. Augmente la durée de ces effets et de Vœu de mort. Le wiki signale que la durée est actuellement buggée, avec un correctif attendu.</li>
+    <li><strong>Sortilège sauvage (Savage Sortilege) :</strong> permet aux compétences de Nécromancien d'être critiques. À prendre vers la fin de l'Acte 1 ou le début de l'Acte 2, quand les chances de critique augmentent.</li>
+    <li><strong>Bourreau (Executioner) :</strong> +2 PA par tour après un kill. Le bonus ne se déclenche pas deux fois dans le même tour. Un ennemi mort du saignement pendant son tour donne +2 PA au début de ton tour.</li>
+    <li><strong>Armure vivante (Living Armour) :</strong> à prendre si le groupe peine à survivre, car le build se soigne souvent et ce talent restaure l'armure magique.</li>
+    <li><strong>Far Out Man :</strong> facultatif, pour toucher davantage d'ennemis. Presque toutes les compétences du build ciblent.</li>
+    <li><strong>Hothead :</strong> +10 % de chance critique et +10 % de précision à Vitalité maximale. Utile contre l'esquive accrue des ennemis dans la Definitive Edition.</li>
+  </ol>
+  <p>Le wiki ne donne pas de niveau exact pour chaque talent, sauf indication dans la liste.</p>
+
+  <h2 id="equipement">Équipement</h2>
+  <ul>
+    <li><strong>Arme :</strong> un arc ou une arbalète, de préférence avec des chances critiques et des effets Acide, Atrophie ou Saignement.</li>
+    <li><strong>Armure :</strong> un mélange d'armures basées sur l'Intelligence et sur la Finesse, avec une bonne défense physique et magique. Privilégier l'équipement qui renforce Art de la guerre, la statistique la plus importante pour ce build.</li>
+    <li><strong>Casque :</strong> Masque du métamorphe (Mask of the Shapeshifter) permet d'obtenir Sacrifice de chair, pour jouer en mort-vivant. Il occupe alors l'emplacement du casque.</li>
+    <li><strong>Runes et consommables :</strong> le wiki ne les détaille pas.</li>
+  </ul>
+
+  <h2 id="conseils">Conseils et points faibles</h2>
+  <p><strong>Conseils :</strong></p>
+  <ul>
+    <li>Commencer le combat avec peu de vie pour maximiser Vœu de mort, en ayant la meilleure initiative pour agir en premier.</li>
+    <li>Une flaque de poison près d'un point de passage fait baisser la vie facilement, car le poison ne disparaît pas.</li>
+    <li>Monter en hauteur avec Retraite tactique, puis utiliser Sacrifice de chair une fois en position haute.</li>
+    <li>Les buffs Encouragement et Paix d'esprit (2 PA) peuvent apporter près de +50 % de dégâts plus tard, car ils évoluent avec le niveau.</li>
+    <li>Infection ne s'utilise que sur du sang, selon l'auteur.</li>
+    <li>Vœu de mort vise d'abord les cibles avec armure, pour retarder les soins passifs du Nécromancien.</li>
+    <li>Nuée de moustiques permet de se soigner.</li>
+  </ul>
+  <p><strong>Points faibles :</strong></p>
+  <ul>
+    <li>Les compétences s'épuisent vite, avec des trous dans les temps de recharge.</li>
+    <li>Peu de défenses : il faut une bonne armure pour éviter les effets de statut.</li>
+    <li>Le saignement ne peut pas être critique et ne profite pas des attributs. Il ne gagne en puissance qu'avec le niveau du personnage.</li>
+    <li>Le build est moins efficace aux premiers niveaux, car le masque n'arrive que plus tard.</li>
+    <li>Les attaques qui traversent l'armure peuvent tuer le personnage avant qu'il n'agisse.</li>
+    <li>En mort-vivant, le masque occupe le casque et la méthode du poison devient inutile.</li>
+  </ul>
+
+  <h2 id="sources">Sources</h2>
+  <ul>
+    <li><a href="https://fextralife.com/divinity-original-sin-2-builds-sanguine-bowman/">Fextralife : Sanguine Bowman</a></li>
+  </ul>
+
+  <footer>Guide communautaire non officiel. Aucun lien avec Larian Studios. Source : wiki Fextralife, à vérifier en jeu.</footer>
+</main>
+<script src="theme.js"></script>
+</body>
+</html>
