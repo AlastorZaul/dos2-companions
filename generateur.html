@@ -264,9 +264,9 @@
   // Équipe à deux : chaque rôle choisit une classe parmi celles qui y correspondent.
   const ROLE_CLASSES = { corps: [1], mage: [3, 4], soutien: [5] };
   const COMPANIONS = {
-    lohse: { n: "Lohse", why: "Enchanteresse, avec Encouragement pour renforcer le groupe et Chant de folie pour le contrôle." },
-    ifan: { n: "Ifan ben-Mezd", why: "Voyageur, avec Encouragement et un loup spirituel qui occupe les ennemis." },
-    prince: { n: "Le Prince Rouge", why: "Combattant, avec Flamme de dragon : utile si l'équipe manque de contact." }
+    lohse: { n: "Lohse", role: "soutien", cls: "Enchanteresse", why: "Encouragement et Chant de folie renforcent le groupe." },
+    ifan: { n: "Ifan ben-Mezd", role: "soutien", cls: "Voyageur", why: "Encouragement et un loup spirituel qui occupe les ennemis." },
+    prince: { n: "Le Prince Rouge", role: "corps à corps", cls: "Combattant", why: "Flamme de dragon, utile si l'équipe manque de contact." }
   };
   function classFor(role) {
     if (role === 'random' || !ROLE_CLASSES[role]) return 'random';
@@ -294,8 +294,8 @@
       `<h3>Joueur 1 : ${roleName[roleSel1]}</h3>` + render(b1) +
       `<h3>Joueur 2 : ${roleName[roleSel2]}</h3>` + render(b2) +
       `<h3>Compagnons conseillés</h3><ul>` +
-      companions.map(c => `<li><strong>${c.n}</strong> : ${c.why}</li>`).join('') +
-      `</ul><p><em>Équipe non testée. Les compagnons ne sont pas une équipe validée : vérifie en jeu.</em></p>`;
+      companions.map(c => `<li><strong>${c.n}</strong> : rôle à combler : ${c.role}. Classe conseillée au recrutement : ${c.cls}. ${c.why} Ses talents raciaux ne se changent pas.</li>`).join('') +
+      `</ul><p><em>Équipe non testée. La classe d'un compagnon se choisit au recrutement ; ses attributs se modifient ensuite au miroir. Vérifie en jeu.</em></p>`;
   });
 
   document.getElementById('gen').addEventListener('click', () => {
