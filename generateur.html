@@ -85,6 +85,29 @@
     <div id="out"></div>
   </div>
 
+  <h2>Équipe à deux</h2>
+  <p class="subtitle">Deux personnages créés de zéro, avec un rôle chacun, et les compagnons conseillés pour compléter le groupe.</p>
+  <div class="card">
+    <label for="role1">Rôle du joueur 1</label>
+    <select id="role1">
+      <option value="random">Aléatoire</option>
+      <option value="corps" selected>Corps à corps</option>
+      <option value="mage">Mage</option>
+      <option value="soutien">Soutien</option>
+    </select>
+
+    <label for="role2">Rôle du joueur 2</label>
+    <select id="role2">
+      <option value="random">Aléatoire</option>
+      <option value="corps">Corps à corps</option>
+      <option value="mage" selected>Mage</option>
+      <option value="soutien">Soutien</option>
+    </select>
+
+    <p><button id="gen-team" type="button" class="btn">Générer l'équipe</button></p>
+    <div id="team-out"></div>
+  </div>
+
   <h2>Règles utilisées</h2>
   <ul>
     <li><strong>Race et talents raciaux :</strong> selon la page <a href="races.html">Races</a>. La race donne ses deux talents d'office, sans choix (GamePressure).</li>
@@ -237,6 +260,43 @@
       ${b.undead ? '<p>L\'état Mort-vivant s\'ajoute au talent racial : le poison soigne, les soins normaux blessent.</p>' : ''}
       <p><em>Tirage non testé. Les talents suivants s'obtiennent aux niveaux de talent (à vérifier sur la page Talents ou en jeu).</em></p>`;
   }
+
+  // Équipe à deux : chaque rôle choisit une classe parmi celles qui y correspondent.
+  const ROLE_CLASSES = { corps: [1], mage: [3, 4], soutien: [5] };
+  const COMPANIONS = {
+    lohse: { n: "Lohse", why: "Enchanteresse, avec Encouragement pour renforcer le groupe et Chant de folie pour le contrôle." },
+    ifan: { n: "Ifan ben-Mezd", why: "Voyageur, avec Encouragement et un loup spirituel qui occupe les ennemis." },
+    prince: { n: "Le Prince Rouge", why: "Combattant, avec Flamme de dragon : utile si l'équipe manque de contact." }
+  };
+  function classFor(role) {
+    if (role === 'random' || !ROLE_CLASSES[role]) return 'random';
+    const list = ROLE_CLASSES[role];
+    return String(list[Math.floor(Math.random() * list.length)]);
+  }
+  function companionsFor(roles) {
+    const picks = [];
+    if (!roles.includes('corps')) picks.push(COMPANIONS.prince);
+    if (!roles.includes('soutien')) picks.push(COMPANIONS.lohse);
+    if (picks.length < 2) picks.push(COMPANIONS.ifan);
+    if (picks.length < 2) picks.push(COMPANIONS.lohse);
+    return picks.slice(0, 2);
+  }
+  document.getElementById('gen-team').addEventListener('click', () => {
+    const roleSel1 = document.getElementById('role1').value;
+    const roleSel2 = document.getElementById('role2').value;
+    clsSel.value = classFor(roleSel1);
+    const b1 = generate();
+    clsSel.value = classFor(roleSel2);
+    const b2 = generate();
+    const companions = companionsFor([roleSel1, roleSel2]);
+    const roleName = { corps: 'Corps à corps', mage: 'Mage', soutien: 'Soutien', random: 'Aléatoire' };
+    document.getElementById('team-out').innerHTML =
+      `<h3>Joueur 1 : ${roleName[roleSel1]}</h3>` + render(b1) +
+      `<h3>Joueur 2 : ${roleName[roleSel2]}</h3>` + render(b2) +
+      `<h3>Compagnons conseillés</h3><ul>` +
+      companions.map(c => `<li><strong>${c.n}</strong> : ${c.why}</li>`).join('') +
+      `</ul><p><em>Équipe non testée. Les compagnons ne sont pas une équipe validée : vérifie en jeu.</em></p>`;
+  });
 
   document.getElementById('gen').addEventListener('click', () => {
     out.innerHTML = render(generate());
